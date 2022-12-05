@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private float playerSpeed = 7.5f;
+    private float jumpSpeed = 100f;
     private float previousMove;
 
     private Vector2 playerMovementVector2;
@@ -17,33 +18,53 @@ public class PlayerMovement : MonoBehaviour
         rb2Player = GetComponent<Rigidbody2D>();
     }
 
+    // private void Update()
+    // {
+    //     
+    // }
+    
     private void FixedUpdate()
     {
         // they get values of 0 and 1 in case the button is pressed or not
-        playerMovementVector2.x = Input.GetAxisRaw("Horizontal");
-        // playerMovementVector2.y = Input.GetAxisRaw("Vertical");
         
+        playerMovementVector2.x = Input.GetAxisRaw("Horizontal");
+        MoveCharacter();
+
         FaceTowards();
-        MoveCharacter(playerMovementVector2, playerSpeed);
+        AnimateRunning(rb2Player.velocity.x);
     }
     
-    private void MoveCharacter(Vector2 playerMovementVector2, float playerSpeed)
+    private void MoveCharacter()
     {
         // move the rigidBody2D instead of moving the transform to prevent camera shaking 
         //..during wall contact
-        playerMovementVector2.Normalize();
-        rb2Player.velocity = playerMovementVector2 * playerSpeed;
 
+        if (Input.GetKey(KeyCode.D))
+            rb2Player.velocity = new Vector2(5f, rb2Player.velocity.y);
+        else if (Input.GetKey(KeyCode.A))
+            rb2Player.velocity = new Vector2(-5f,  rb2Player.velocity.y);
+        if (Input.GetKey(KeyCode.W))
+            rb2Player.velocity = new Vector2(rb2Player.velocity.x, 10f);
+        
+        // if (Input.GetKeyDown(KeyCode.W))
+        // {
+        //     rb2Player.velocity = new Vector2(playerMovementVector2.x * playerSpeed, jumpSpeed);
+        // }
+        // else
+        // {
+        //     rb2Player.velocity = new Vector2(playerMovementVector2.x * playerSpeed, 0);
+        // }
+        
         AnimateRunning(rb2Player.velocity.x);
     }
 
     private void FaceTowards()
     {
-        if (previousMove == playerMovementVector2.x) return;
+        if ((int)previousMove == (int)playerMovementVector2.x) return;
         
         if (playerMovementVector2.x != 0)
             transform.localScale = new Vector3(5*playerMovementVector2.x, 5, 1);
- 
+    
         previousMove = playerMovementVector2.x;
     }
     
