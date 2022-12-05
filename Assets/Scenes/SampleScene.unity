@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 1115185235}
   - component: {fileID: 1115185234}
   - component: {fileID: 1115185236}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,6 +550,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e764c145017319042a9ccea286e5661b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformsLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
   animator: {fileID: 1733928919}
 --- !u!95 &1733928919
 Animator:

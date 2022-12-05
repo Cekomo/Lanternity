@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float playerSpeed = 7.5f;
-    private float jumpSpeed = 12.5f;
+    [SerializeField] private LayerMask platformsLayerMask;
+    private BoxCollider2D boxCollider2D;
+    
+    private readonly float playerSpeed = 7.5f;
+    private readonly float jumpSpeed = 15f;
     private float previousMove;
 
     private Vector2 playerMovementVector2;
@@ -16,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb2Player = GetComponent<Rigidbody2D>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     private void Update() // anything receives input should be inside update instead of fixedUpdate
@@ -27,22 +31,25 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // they get values of 0 and 1 in case the button is pressed or not
+        
         MoveCharacter();
-
         FaceTowards();
-        AnimateRunning(rb2Player.velocity.x);
     }
     
     private void MoveCharacter()
     {
         // move the rigidBody2D instead of moving the transform to prevent camera shaking 
         //..during wall contact
+
         if (playerMovementVector2.y > 0.1f)
-            rb2Player.velocity = new Vector2(rb2Player.velocity.x, jumpSpeed);
+        {
+            if (isGrounded())
+                rb2Player.velocity = new Vector2(rb2Player.velocity.x, jumpSpeed);
+        }
         else
             rb2Player.velocity = new Vector2(playerMovementVector2.x * playerSpeed, rb2Player.velocity.y);
         
-        AnimateRunning(rb2Player.velocity.x);
+        AnimateRunning(); // can be on fixedUpdate
     }
 
     private void FaceTowards()
@@ -55,8 +62,16 @@ public class PlayerMovement : MonoBehaviour
         previousMove = playerMovementVector2.x;
     }
     
-    private void AnimateRunning(float playerVelocity)
+    private void AnimateRunning()
     {
-        animator.SetFloat("Speed", Mathf.Abs(playerVelocity));
+        animator.SetFloat("Speed", Mathf.Abs(playerMovementVector2.x));
+    }
+
+    private bool isGrounded()
+    { // undestand this later
+        var bCBounds = boxCollider2D.bounds;
+        RaycastHit2D raycastHit2D = Physics2D.BoxCast(bCBounds.center, bCBounds.size, 
+            0f, Vector2.down, 0.1f, platformsLayerMask);
+        return raycastHit2D.collider != null;
     }
 }
