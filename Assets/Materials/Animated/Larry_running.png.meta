@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5e39a568f04245b43ba1c1f26493b924
+guid: 74511cdf38354a24e8ad8efeaf8012bf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Larry_runningL_0
+      name: Larry_running_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b200b3ec0308fdd4a8217f3a9595d7b9
-      internalID: 887249308
+      spriteID: ec6372dbd9713d6469e3f6f266e0dbd6
+      internalID: 1439120451
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Larry_runningL_1
+      name: Larry_running_1
       rect:
         serializedVersion: 2
         x: 29
@@ -164,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 296f914165ce3b24fb8cf375b0aa8542
-      internalID: 612972700
+      spriteID: 72364532704420545933745da6bcf8cb
+      internalID: -1724476433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Larry_runningL_2
+      name: Larry_running_2
       rect:
         serializedVersion: 2
         x: 58
@@ -185,14 +185,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2f028886e2b10c47bdcd867a99b8659
-      internalID: 185850468
+      spriteID: a680ec2825b44e346ac0f4a57ca6ad34
+      internalID: -452441575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Larry_runningL_3
+      name: Larry_running_3
       rect:
         serializedVersion: 2
         x: 87
@@ -206,14 +206,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3432afc39344c32488d2676bfc054786
-      internalID: -976831815
+      spriteID: 59559210e3579214ba8cc2995e71b403
+      internalID: -2124971187
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Larry_runningL_4
+      name: Larry_running_4
       rect:
         serializedVersion: 2
         x: 116
@@ -227,14 +227,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 705e147dbda610344b62fd0cd48f7a98
-      internalID: -1347125655
+      spriteID: 522c3219a0997d648aeef32a401c3be3
+      internalID: 35152415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Larry_runningL_5
+      name: Larry_running_5
       rect:
         serializedVersion: 2
         x: 145
@@ -248,14 +248,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74e71321abdf5cd4fb1e99f00552fbf9
-      internalID: -1948574790
+      spriteID: 74ee7ec3cb7ac4c458ab027af83be999
+      internalID: -1411765783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Larry_runningL_6
+      name: Larry_running_6
       rect:
         serializedVersion: 2
         x: 174
@@ -269,14 +269,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 371f2d866c177ef42b614811140d2126
-      internalID: -122254238
+      spriteID: 250426daae1d3324baf68de88167a0de
+      internalID: 1468154871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Larry_runningL_7
+      name: Larry_running_7
       rect:
         serializedVersion: 2
         x: 203
@@ -290,8 +290,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0720032f161cbde4b989851e3c50be57
-      internalID: 834229261
+      spriteID: 4d45e61585a7c6a4c8da8bcee68ba2b2
+      internalID: -1087187314
       vertices: []
       indices: 
       edges: []
@@ -307,14 +307,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Larry_runningL_0: 887249308
-      Larry_runningL_6: -122254238
-      Larry_runningL_2: 185850468
-      Larry_runningL_3: -976831815
-      Larry_runningL_7: 834229261
-      Larry_runningL_1: 612972700
-      Larry_runningL_4: -1347125655
-      Larry_runningL_5: -1948574790
+      Larry_running_5: -1411765783
+      Larry_running_6: 1468154871
+      Larry_running_1: -1724476433
+      Larry_running_2: -452441575
+      Larry_running_3: -2124971187
+      Larry_running_0: 1439120451
+      Larry_running_7: -1087187314
+      Larry_running_4: 35152415
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
