@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     
     private readonly float playerSpeed = 7.5f;
     private readonly float jumpSpeed = 20f;
-    private bool isJumping = true;
+    private bool isJumpingReady = true;
     private float previousMove;
 
     private Vector2 playerMovementVector2;
@@ -23,8 +23,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update() // anything receives input should be inside update instead of fixedUpdate
     {
-        playerMovementVector2.x = Input.GetAxisRaw("Horizontal");
-        playerMovementVector2.y = Input.GetAxisRaw("Vertical");
+        if (IsGrounded()) // commentate it to control player on air
+        {
+            playerMovementVector2.x = Input.GetAxisRaw("Horizontal");
+            playerMovementVector2.y = Input.GetAxisRaw("Vertical");
+        }
     }
     
     private void FixedUpdate()
@@ -42,25 +45,24 @@ public class PlayerMovement : MonoBehaviour
 
         if (playerMovementVector2.y > 0.1f)
         {
-            if (IsGrounded() && isJumping)
+            if (IsGrounded() && isJumpingReady)
             {
                 rb2Player.velocity = new Vector2(rb2Player.velocity.x, jumpSpeed);
                 animator.SetTrigger("takeOff");
-                isJumping = false;
+                isJumpingReady = false;
             }
         }
         else
             rb2Player.velocity = new Vector2(playerMovementVector2.x * playerSpeed, rb2Player.velocity.y);
 
-        if (playerMovementVector2.y < 0.2f)
+        if (IsGrounded())
             animator.SetBool("isJumping", false);
         else
         {
             animator.SetBool("isJumping", true);
-            isJumping = true;
+            isJumpingReady = true;
         }
-
-
+        
         AnimateRunning(); // can be on fixedUpdate
     }
 
