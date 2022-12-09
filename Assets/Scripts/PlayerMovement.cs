@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,7 +6,8 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider2D;
     
     private readonly float playerSpeed = 7.5f;
-    private readonly float jumpSpeed = 15f;
+    private readonly float jumpSpeed = 20f;
+    private bool isJumping = true;
     private float previousMove;
 
     private Vector2 playerMovementVector2;
@@ -43,12 +42,25 @@ public class PlayerMovement : MonoBehaviour
 
         if (playerMovementVector2.y > 0.1f)
         {
-            if (isGrounded())
+            if (IsGrounded() && isJumping)
+            {
                 rb2Player.velocity = new Vector2(rb2Player.velocity.x, jumpSpeed);
+                animator.SetTrigger("takeOff");
+                isJumping = false;
+            }
         }
         else
             rb2Player.velocity = new Vector2(playerMovementVector2.x * playerSpeed, rb2Player.velocity.y);
-        
+
+        if (playerMovementVector2.y < 0.2f)
+            animator.SetBool("isJumping", false);
+        else
+        {
+            animator.SetBool("isJumping", true);
+            isJumping = true;
+        }
+
+
         AnimateRunning(); // can be on fixedUpdate
     }
 
@@ -67,8 +79,8 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(playerMovementVector2.x));
     }
 
-    private bool isGrounded()
-    { // undestand this later
+    private bool IsGrounded()
+    { // understand this later
         var bCBounds = boxCollider2D.bounds;
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(bCBounds.center, bCBounds.size, 
             0f, Vector2.down, 0.1f, platformsLayerMask);
