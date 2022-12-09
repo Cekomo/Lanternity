@@ -134,8 +134,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 29
-        height: 62
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e585441dfd76e444842f30958c9c353
-      internalID: -282988748
+      spriteID: 6f2265091dcea2745ba64058e9b28d98
+      internalID: 114234432
       vertices: []
       indices: 
       edges: []
@@ -153,10 +153,10 @@ TextureImporter:
       name: Larry_jumping_1
       rect:
         serializedVersion: 2
-        x: 29
+        x: 64
         y: 0
-        width: 29
-        height: 62
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,8 +164,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4f973661a6114e4d88c283fd6a6d873
-      internalID: 75996710
+      spriteID: 8c3ac8d2505023b41a2b9bb325975d89
+      internalID: -1398817510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Larry_jumping_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73c657c16ceca664bb1ba9a189356822
+      internalID: -102198158
       vertices: []
       indices: 
       edges: []
@@ -181,8 +202,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Larry_jumping_0: -282988748
-      Larry_jumping_1: 75996710
+      Larry_jumping_0: 114234432
+      Larry_jumping_2: -102198158
+      Larry_jumping_1: -1398817510
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

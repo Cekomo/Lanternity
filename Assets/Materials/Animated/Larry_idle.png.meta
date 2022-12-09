@@ -134,8 +134,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 19
-        height: 47
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e4b5d3a4a464564a98f19bef80d60d8
-      internalID: -973357715
+      spriteID: 1221ecbc8242ebb40a82b45ef59504be
+      internalID: -1854057678
       vertices: []
       indices: 
       edges: []
@@ -153,10 +153,10 @@ TextureImporter:
       name: Larry_idle_1
       rect:
         serializedVersion: 2
-        x: 19
+        x: 64
         y: 0
-        width: 19
-        height: 47
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,8 +164,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 716966f7d5e251a46872ae0bfa569bf9
-      internalID: -193970633
+      spriteID: dc92cc10b7b6ea94cac2b8a816d28d1c
+      internalID: 1811910511
       vertices: []
       indices: 
       edges: []
@@ -174,10 +174,10 @@ TextureImporter:
       name: Larry_idle_2
       rect:
         serializedVersion: 2
-        x: 38
+        x: 128
         y: 0
-        width: 19
-        height: 47
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,8 +185,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fd08114cb7195040b60f8ae7947091c
-      internalID: 789150222
+      spriteID: 7517aacd6af4dd345aa9b72038e37c75
+      internalID: 1568804831
       vertices: []
       indices: 
       edges: []
@@ -195,10 +195,10 @@ TextureImporter:
       name: Larry_idle_3
       rect:
         serializedVersion: 2
-        x: 57
+        x: 192
         y: 0
-        width: 19
-        height: 47
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,8 +206,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d700956b708813d49b26254daf08d47e
-      internalID: 530951817
+      spriteID: 458fd940ec8acb14fbd5d539278727ba
+      internalID: 48973419
       vertices: []
       indices: 
       edges: []
@@ -216,10 +216,10 @@ TextureImporter:
       name: Larry_idle_4
       rect:
         serializedVersion: 2
-        x: 76
+        x: 256
         y: 0
-        width: 19
-        height: 47
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,8 +227,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5499ca88e7cb1624189cc569d8d5cd1b
-      internalID: -1340237753
+      spriteID: 6973b3a6df19653408f0dc456f410c53
+      internalID: 339223085
       vertices: []
       indices: 
       edges: []
@@ -237,10 +237,10 @@ TextureImporter:
       name: Larry_idle_5
       rect:
         serializedVersion: 2
-        x: 95
+        x: 320
         y: 0
-        width: 19
-        height: 47
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,8 +248,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 548448fe3a91a1545a1fc72beca77aa3
-      internalID: -2143590307
+      spriteID: d5c5cef0c017a534f8bdf7df5d8086ea
+      internalID: 1785532019
       vertices: []
       indices: 
       edges: []
@@ -258,10 +258,10 @@ TextureImporter:
       name: Larry_idle_6
       rect:
         serializedVersion: 2
-        x: 114
+        x: 384
         y: 0
-        width: 19
-        height: 47
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,8 +269,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 896388f629ae43c4d8e076bf3f0bccd0
-      internalID: 1355435408
+      spriteID: 8c373a2c2a8f189408eec3841aca0fa1
+      internalID: -2058653125
       vertices: []
       indices: 
       edges: []
@@ -279,10 +279,10 @@ TextureImporter:
       name: Larry_idle_7
       rect:
         serializedVersion: 2
-        x: 133
+        x: 448
         y: 0
-        width: 19
-        height: 47
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,8 +290,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: affdb8d543fdbfc4fb4fde34d3c2db76
-      internalID: 1650045696
+      spriteID: 8f646a346fe3ddb448c624c3ee9568f5
+      internalID: 202326020
       vertices: []
       indices: 
       edges: []
@@ -300,10 +300,10 @@ TextureImporter:
       name: Larry_idle_8
       rect:
         serializedVersion: 2
-        x: 152
+        x: 512
         y: 0
-        width: 19
-        height: 47
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,8 +311,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47ad38c23c357fe4fa65d722c6e2538e
-      internalID: 659835560
+      spriteID: b3321f7fd9615ee4ea0b5cd523eb2676
+      internalID: 172453110
       vertices: []
       indices: 
       edges: []
@@ -328,15 +328,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Larry_idle_0: -973357715
-      Larry_idle_5: -2143590307
-      Larry_idle_6: 1355435408
-      Larry_idle_8: 659835560
-      Larry_idle_4: -1340237753
-      Larry_idle_2: 789150222
-      Larry_idle_3: 530951817
-      Larry_idle_1: -193970633
-      Larry_idle_7: 1650045696
+      Larry_idle_0: -1854057678
+      Larry_idle_5: 1785532019
+      Larry_idle_6: -2058653125
+      Larry_idle_8: 172453110
+      Larry_idle_4: 339223085
+      Larry_idle_2: 1568804831
+      Larry_idle_3: 48973419
+      Larry_idle_1: 1811910511
+      Larry_idle_7: 202326020
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -143,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e85253062da7b864fa15065ce918f5cb
-      internalID: 2113316321
+      spriteID: b494854331baade4289e83ef6b3c9fbd
+      internalID: -605628448
       vertices: []
       indices: 
       edges: []
@@ -164,8 +164,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92fd25e72f08fee4e88fa7569855b030
-      internalID: 1475697336
+      spriteID: 1c19a99a26c14524e9da87e3e19c0795
+      internalID: 776497095
       vertices: []
       indices: 
       edges: []
@@ -185,8 +185,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 283761d0dbb496e408b87653a7490d9f
-      internalID: -1527893691
+      spriteID: ae4de13ee5b19234bb1b751db6e109cb
+      internalID: -1193908192
       vertices: []
       indices: 
       edges: []
@@ -206,8 +206,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c6a2d1e39ab2b8478e46733cef191d0
-      internalID: 1998088714
+      spriteID: 9ea09e4ed25c3224c9fd44d1fc24f87f
+      internalID: -1977315973
       vertices: []
       indices: 
       edges: []
@@ -227,8 +227,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 904c0fec08375dd498731be2d0ed5668
-      internalID: -624036203
+      spriteID: 0d560cf84c3ae3a45ae1e2bc681828b3
+      internalID: -1077409429
       vertices: []
       indices: 
       edges: []
@@ -244,11 +244,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Larry_takingoff_2: -1527893691
-      Larry_takingoff_0: 2113316321
-      Larry_takingoff_1: 1475697336
-      Larry_takingoff_4: -624036203
-      Larry_takingoff_3: 1998088714
+      Larry_takingoff_2: -1193908192
+      Larry_takingoff_0: -605628448
+      Larry_takingoff_1: 776497095
+      Larry_takingoff_4: -1077409429
+      Larry_takingoff_3: -1977315973
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
