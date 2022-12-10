@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private LayerMask platformsLayerMask;
     private CapsuleCollider2D capsuleCollider2D;
+    public Animator animator;  
     
     private readonly float pSpeedConstant = 7.5f;
     private readonly float pJumpSpeedConstant = 20f;
@@ -14,9 +15,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 pMovementVector2;
     private Vector2 pSpeed;
     private Rigidbody2D pRigidbody2;
-
-    public Animator animator;  
-
+    
+    private float jumpingCooldown;
     private void Start()
     {
         pRigidbody2 = GetComponent<Rigidbody2D>();
@@ -26,36 +26,33 @@ public class PlayerMovement : MonoBehaviour
     private void Update() // anything receives input should be inside update instead of fixedUpdate
     {
         pMovementVector2.x = Input.GetAxisRaw("Horizontal");
-        pMovementVector2.y = Input.GetAxisRaw("Vertical");
+        
+        if (IsGrounded() && jumpingCooldown < 0.25f)
+            jumpingCooldown += Time.deltaTime;
+        if (jumpingCooldown >= 0.25f)
+            pMovementVector2.y = Input.GetAxisRaw("Vertical");
     }
     
     private void FixedUpdate()
     {
         pSpeed = pRigidbody2.velocity;
-        
+
         MoveCharacter();
         FaceTowards();
     }
     
     private void MoveCharacter()
     {
-        // move the rigidBody2D instead of moving the transform to prevent camera shaking 
-        //..during wall contact
-        if (pMovementVector2.y > 0.1f)
-        {
-            if (IsGrounded())
-            {
-                pRigidbody2.velocity = new Vector2(pSpeed.x, pJumpSpeedConstant);
-                animator.SetTrigger("takeOff");
-            }
-        }
-        else
-            pRigidbody2.velocity = new Vector2(pMovementVector2.x * pSpeedConstant, pSpeed.y);
-
         if (IsGrounded())
         {
+            if (animator.GetBool("isJumping")) 
+            {
+                pMovementVector2.y = 0f; 
+                jumpingCooldown = 0f;
+            }
             animator.SetBool("isJumping", false);
             animator.SetBool("isGrounded", true);
+            
         }
         else
         {
@@ -63,6 +60,16 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isGrounded", false);
         }
         
+        // move the rigidBody2D instead of moving the transform to prevent camera shaking 
+        //..during wall contact
+        if (pMovementVector2.y > 0.1f && IsGrounded())
+        {
+            pRigidbody2.velocity = new Vector2(pSpeed.x, pJumpSpeedConstant);
+            animator.SetTrigger("takeOff");
+        }
+        else
+            pRigidbody2.velocity = new Vector2(pMovementVector2.x * pSpeedConstant, pSpeed.y);
+
         AnimateRunning(); // can be on fixedUpdate
     }
 
