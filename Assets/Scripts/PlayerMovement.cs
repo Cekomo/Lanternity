@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private LayerMask platformsLayerMask;
-    private BoxCollider2D boxCollider2D;
+    private CapsuleCollider2D capsuleCollider2D;
     
     private readonly float pSpeedConstant = 7.5f;
     private readonly float pJumpSpeedConstant = 20f;
@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         pRigidbody2 = GetComponent<Rigidbody2D>();
-        boxCollider2D = GetComponent<BoxCollider2D>();
+        capsuleCollider2D = GetComponent<CapsuleCollider2D>();
     }
 
     private void Update() // anything receives input should be inside update instead of fixedUpdate
@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     { // understand this later
-        var bCBounds = boxCollider2D.bounds;
+        var bCBounds = capsuleCollider2D.bounds;
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(bCBounds.center, bCBounds.size,
             0f, Vector2.down, 0.1f, platformsLayerMask);
         return raycastHit2D.collider != null;
