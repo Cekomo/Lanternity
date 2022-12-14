@@ -50,9 +50,9 @@ public class PlayerMovement : MonoBehaviour
                 pMovementVector2.y = 0f; 
                 jumpingCooldown = 0f;
             }
+            
             animator.SetBool("isJumping", false);
             animator.SetBool("isGrounded", true);
-            
         }
         else
         {
