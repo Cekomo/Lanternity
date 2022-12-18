@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private readonly float pJumpSpeedConstant = 20f;
     private float previousMoveX;
 
-    private Vector2 pMovementVector2;
+    public static Vector2 pMovementVector2;
     private Vector2 pSpeed;
     private Rigidbody2D pRigidbody2;
     
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
     }
 
-    private void Update() // anything receives input should be inside update instead of fixedUpdate
+    public void Update() // anything receives input should be inside update instead of fixedUpdate
     {
         pMovementVector2.x = Input.GetAxisRaw("Horizontal");
         
