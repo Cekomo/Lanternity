@@ -7,10 +7,13 @@ public class PlayerTorchController : MonoBehaviour
 {
     [SerializeField] private GameObject torch;
     private Light2D torchLight;
+    private float flickeringTimeDelay;
+    
     private Vector2[] torchLocations;
     private Vector2 torchDefaultLocation;
     private int locationIndex;
     private float torchTime;
+    
 
     void Start()
     {
@@ -54,11 +57,12 @@ public class PlayerTorchController : MonoBehaviour
         }
     }
 
-    IEnumerator FlickTorch()
+    private IEnumerator FlickTorch()
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.15f);
+            flickeringTimeDelay = Random.Range(0.03f, 0.2f);
+            yield return new WaitForSeconds(flickeringTimeDelay);
             torchLight.intensity = Random.Range(1.6f, 2f);
         }
     }
