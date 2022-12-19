@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
-public class PlayerLightMovement : MonoBehaviour
+public class PlayerTorchController : MonoBehaviour
 {
     [SerializeField] private GameObject torch;
+    private Light2D torchLight;
     private Vector2[] torchLocations;
     private Vector2 torchDefaultLocation;
     private int locationIndex;
@@ -12,11 +14,15 @@ public class PlayerLightMovement : MonoBehaviour
 
     void Start()
     {
+        torchLight = torch.GetComponent<Light2D>();
+        
         torchLocations = new Vector2[8];
 
-        torchDefaultLocation = TorchCoordinatesSO.torchCoordinateDefault;
+        torchDefaultLocation = TorchAttributesSO.torchCoordinateOnIdle;
         for (var i = 0; i < 8; i++)
-            torchLocations[i] = TorchCoordinatesSO.torchCoordinatesOnRunning[i];
+            torchLocations[i] = TorchAttributesSO.torchCoordinatesOnRunning[i];
+        
+        StartCoroutine(FlickTorch());
     }
 
     
@@ -33,7 +39,6 @@ public class PlayerLightMovement : MonoBehaviour
             torch.transform.localPosition = torchDefaultLocation;
             locationIndex = 0;
         }
-        
     }
 
     private void RunWithTorch() // there are synchronization problems between sprite frame and light
@@ -46,6 +51,15 @@ public class PlayerLightMovement : MonoBehaviour
             locationIndex++;
             torchTime = 0f;
             if (locationIndex == 8) locationIndex = 0;
+        }
+    }
+
+    IEnumerator FlickTorch()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.15f);
+            torchLight.intensity = Random.Range(1.6f, 2f);
         }
     }
 }

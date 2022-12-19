@@ -1275,7 +1275,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1733928913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1324de65e48444146b05ced3afa29839, type: 3}
+  m_Script: {fileID: 11500000, guid: e7c9f60c4b0905d4fac3d7b6215dfed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   torch: {fileID: 1860214822}
