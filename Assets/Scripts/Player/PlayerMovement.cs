@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
             if (animator.GetBool("isJumping")) 
             {
                 pMovementVector2.y = 0f; 
-                jumpingCooldown = 0f;
+                jumpingCooldown = 0f; // convert it reversely (initial time be 0.25f)
             }
             
             animator.SetBool("isJumping", false);

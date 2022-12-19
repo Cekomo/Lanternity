@@ -23,6 +23,7 @@ public class PlayerLightMovement : MonoBehaviour
     public void Update()
     {
         torchTime += Time.deltaTime;
+        
         if (Mathf.Abs(PlayerMovement.pMovementVector2.x) > 0.1f)
         {
             RunWithTorch();
@@ -32,10 +33,12 @@ public class PlayerLightMovement : MonoBehaviour
             torch.transform.localPosition = torchDefaultLocation;
             locationIndex = 0;
         }
+        
     }
 
     private void RunWithTorch() // there are synchronization problems between sprite frame and light
     { // convert it to coroutine
+        // synchronization is mostly fixed but still slight offset exists between light & animation
         // approximately 104 mseconds per frame
         if (torchTime >= 0.104f)
         {
