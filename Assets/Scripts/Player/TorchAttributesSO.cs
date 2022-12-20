@@ -5,11 +5,14 @@ namespace Player
     [CreateAssetMenu(fileName = "LightAttributeSO", menuName = "ScriptableObjects/PlayerScriptableObject", order = 1)]
     public class TorchAttributesSO : ScriptableObject
     {
+        // this are the coordinates of torch during running and jumping
+        // no need for now
+        
         public static readonly Vector2 TorchCoordinateOnIdle = new(0.1f, -0.02f);
         public static readonly Vector2[] TorchCoordinatesOnRunning =
         {
             new(-0.04f,-0.09f), new(0.1f, -0.01f), new(0.14f, 0), new(0, 0.09f),
-            new(0.07f, 0.07f), new(0.12f, -0.08f), new(-0.03f, -0.08f), new(-0.05f, -0.1f)
+            new(0.07f, 0.07f), new(0.12f, -0.08f), new(-0.02f, -0.08f), new(-0.05f, -0.1f)
         };
 
         public static readonly Vector2[] TorchCoordinatesOnTakingOff =

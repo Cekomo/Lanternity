@@ -18,8 +18,6 @@ namespace Player
 
         private float jumpingCooldown;
 
-        public static bool isGrounded = true;
-
         private void Start()
         {
             pRigidbody2 = GetComponent<Rigidbody2D>();
@@ -53,15 +51,12 @@ namespace Player
                     pMovementVector2.y = 0f;
                     jumpingCooldown = 0f; // convert it reversely (initial time be 0.25f)
                 }
-
-                isGrounded = true;
+                
                 animator.SetBool("isJumping", false);
                 animator.SetBool("isGrounded", true);
             }
             else
             {
-
-                isGrounded = false;
                 animator.SetBool("isJumping", true);
                 animator.SetBool("isGrounded", false);
             }
