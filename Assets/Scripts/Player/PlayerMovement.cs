@@ -98,7 +98,6 @@ namespace Player
         private bool IsGrounded()
         {
             // understand this later
-            print("zort");
             var bCBounds = capsuleCollider2D.bounds;
             RaycastHit2D raycastHit2D = Physics2D.BoxCast(bCBounds.center, bCBounds.size,
                 0f, Vector2.down, 0.1f, platformsLayerMask);
