@@ -14,9 +14,10 @@ namespace Player
         private Vector2[] torchLocations;
         private Vector2 torchDefaultLocation;
         private int locationIndex;
-        private float torchTime;
+        private float torchTimer;
 
-
+        private float landingAnimationExitTimer; 
+        
         void Start()
         {
             torchLight = torch.GetComponent<Light2D>();
@@ -33,7 +34,7 @@ namespace Player
 
         public void Update()
         {
-            torchTime += Time.deltaTime;
+            torchTimer += Time.deltaTime;
             print(PlayerMovement.isGrounded);
             if (Mathf.Abs(PlayerMovement.pMovementVector2.x) > 0.1f && PlayerMovement.isGrounded)
             {
@@ -44,6 +45,11 @@ namespace Player
                 torch.transform.localPosition = torchDefaultLocation;
                 locationIndex = 0;
             }
+            
+            if (PlayerMovement.isGrounded)
+                landingAnimationExitTimer += Time.deltaTime;
+            else 
+                landingAnimationExitTimer = 0;
         }
 
         private void RunWithTorch() // there are synchronization problems between sprite frame and light
@@ -51,11 +57,12 @@ namespace Player
             // convert it to coroutine
             // synchronization is mostly fixed but still slight offset exists between light & animation
             // approximately 104 mseconds per frame
-            if (torchTime >= 0.104f)
+            
+            if (torchTimer >= 0.104f && landingAnimationExitTimer > 1f)
             {
                 torch.transform.localPosition = torchLocations[locationIndex];
                 locationIndex++;
-                torchTime = 0f;
+                torchTimer = 0f;
                 if (locationIndex == 8) locationIndex = 0;
             }
         }
