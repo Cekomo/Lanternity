@@ -143,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9008b3666a96cae4bab227bbf8c23704
-      internalID: 311554787
+      spriteID: f5ef0b71af13df04a87c2e9ae7cbfa85
+      internalID: 1066891245
       vertices: []
       indices: 
       edges: []
@@ -164,8 +164,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 795ebe03a930ee748a0ae2e366e7070f
-      internalID: 2051744311
+      spriteID: 3a5809fb57a6e8b409c424f39997cbd5
+      internalID: 934870091
       vertices: []
       indices: 
       edges: []
@@ -185,8 +185,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25580ca08b6502d41a63a7ff8ffda08d
-      internalID: -1097423049
+      spriteID: d1909db57584c0d45a41d1ebe6dce5f5
+      internalID: -663487175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Larry_jumping_torch_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ec58c6d21245864f8ab965f7e5f3a3f
+      internalID: 1295391075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Larry_jumping_torch_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cbbe5a4bec5bd444831fbfbf4dd1db7
+      internalID: 9990647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Larry_jumping_torch_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e4ace58c03a4634b91cfd03730d7591
+      internalID: -1893216244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Larry_jumping_torch_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f744da0b1aa084d8aeef3c6f037c63
+      internalID: -138279942
       vertices: []
       indices: 
       edges: []
@@ -202,9 +286,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Larry_jumping_torch_0: 311554787
-      Larry_jumping_torch_2: -1097423049
-      Larry_jumping_torch_1: 2051744311
+      Larry_jumping_torch_0: 1066891245
+      Larry_jumping_torch_2: -663487175
+      Larry_jumping_torch_3: 1295391075
+      Larry_jumping_torch_5: -1893216244
+      Larry_jumping_torch_6: -138279942
+      Larry_jumping_torch_1: 934870091
+      Larry_jumping_torch_4: 9990647
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ba01612cd88dd174585757fb1fd04340
+guid: 8a8c17c13c5b07843b1d2eb9391f89c0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Larry_landing_torch 1_0
+      name: Larry_landing_torch_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 249a9407be8d11b4e990c79aa02f087d
-      internalID: -1756757491
+      spriteID: d70864614a3d57b458009dd65fbd8954
+      internalID: 1531831897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Larry_landing_torch 1_1
+      name: Larry_landing_torch_1
       rect:
         serializedVersion: 2
         x: 64
@@ -164,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d007c25aab43cc4596820aaadaaefe5
-      internalID: 1531145569
+      spriteID: 7c3d208c6c4937b40a1f985132bd35a2
+      internalID: -687084442
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Larry_landing_torch 1_2
+      name: Larry_landing_torch_2
       rect:
         serializedVersion: 2
         x: 128
@@ -185,14 +185,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bff2c93eb7064344bf0adfd65901460
-      internalID: -261848483
+      spriteID: e0fb832302ad8fa4cbdc2fa57efe3c9d
+      internalID: 1437083741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Larry_landing_torch 1_3
+      name: Larry_landing_torch_3
       rect:
         serializedVersion: 2
         x: 192
@@ -206,14 +206,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0c754c0ee6b60643a81a3f8caa23dc8
-      internalID: 1917534542
+      spriteID: 18676a1dbfd0635489ed4f11d5863254
+      internalID: 1591584499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Larry_landing_torch 1_4
+      name: Larry_landing_torch_4
       rect:
         serializedVersion: 2
         x: 256
@@ -227,14 +227,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47cdc75a26e5b0a4ca8b0f23fe085611
-      internalID: 2013801237
+      spriteID: 640a0967ba995604fbcc979d25183fac
+      internalID: -2086066412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Larry_landing_torch 1_5
+      name: Larry_landing_torch_5
       rect:
         serializedVersion: 2
         x: 320
@@ -248,14 +248,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e4a533bb9c9dbd45a88cd291f627c9a
-      internalID: -924563623
+      spriteID: de1efba3d7a4c2541b2a07aff533a958
+      internalID: 1454182158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Larry_landing_torch 1_6
+      name: Larry_landing_torch_6
       rect:
         serializedVersion: 2
         x: 384
@@ -269,8 +269,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef31c336ae0ffc04e91da1a5c3d246df
-      internalID: 1487525670
+      spriteID: 0d51d8bfabc2da34a97fd42fe95d0fc5
+      internalID: 42521030
       vertices: []
       indices: 
       edges: []
@@ -286,13 +286,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Larry_landing_torch 1_0: -1756757491
-      Larry_landing_torch 1_1: 1531145569
-      Larry_landing_torch 1_3: 1917534542
-      Larry_landing_torch 1_5: -924563623
-      Larry_landing_torch 1_6: 1487525670
-      Larry_landing_torch 1_2: -261848483
-      Larry_landing_torch 1_4: 2013801237
+      Larry_landing_torch_2: 1437083741
+      Larry_landing_torch_0: 1531831897
+      Larry_landing_torch_3: 1591584499
+      Larry_landing_torch_5: 1454182158
+      Larry_landing_torch_1: -687084442
+      Larry_landing_torch_6: 42521030
+      Larry_landing_torch_4: -2086066412
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

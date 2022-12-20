@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 23fc58297344fe2488fa549101a74b1e
+guid: fbb86d8d4e4596940bd9cba690729329
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Larry_takingoff_torch_0
+      name: Larry_falling_torch_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 021e25d31adebcb46acd6293076a6709
-      internalID: -123285281
+      spriteID: 643a541cccca9354f9e7a80e594d59bf
+      internalID: 992237588
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Larry_takingoff_torch_1
+      name: Larry_falling_torch_1
       rect:
         serializedVersion: 2
         x: 64
@@ -164,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 419cc62864194f24ea0bac3c6945ef28
-      internalID: 1121235442
+      spriteID: 90fd248d3ad652e419ca6fd04d2995f4
+      internalID: 1658079703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Larry_takingoff_torch_2
+      name: Larry_falling_torch_2
       rect:
         serializedVersion: 2
         x: 128
@@ -185,14 +185,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5eeb1eda0ac353e41960762a5666ea8b
-      internalID: 70451849
+      spriteID: ed32aeb4b6a2be4498ef16e8e48675e0
+      internalID: -1696292082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Larry_takingoff_torch_3
+      name: Larry_falling_torch_3
       rect:
         serializedVersion: 2
         x: 192
@@ -206,29 +206,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb289b07e78f6914c851847f45bbdc60
-      internalID: 1924104537
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Larry_takingoff_torch_4
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 041d78415c9be144eafaf5a98083cf43
-      internalID: -710646101
+      spriteID: d4e64f2e6e6b2e044abef669ecc4d17a
+      internalID: 1549051509
       vertices: []
       indices: 
       edges: []
@@ -244,11 +223,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Larry_takingoff_torch_2: 70451849
-      Larry_takingoff_torch_4: -710646101
-      Larry_takingoff_torch_3: 1924104537
-      Larry_takingoff_torch_0: -123285281
-      Larry_takingoff_torch_1: 1121235442
+      Larry_falling_torch_2: -1696292082
+      Larry_falling_torch_0: 992237588
+      Larry_falling_torch_3: 1549051509
+      Larry_falling_torch_1: 1658079703
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
