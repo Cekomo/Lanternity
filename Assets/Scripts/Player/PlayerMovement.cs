@@ -79,7 +79,7 @@ namespace Player
             if ((int)previousMoveX == (int)pMovementVector2.x) return;
 
             if (pMovementVector2.x != 0)
-                transform.localScale = new Vector3(5 * pMovementVector2.x, 5, 1);
+                transform.localScale = new Vector3(2.15f * pMovementVector2.x, 2.15f, 1);
 
             previousMoveX = pMovementVector2.x;
         }
