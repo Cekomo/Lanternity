@@ -50,3 +50,9 @@ TagManager:
   - name: Walls
     uniqueID: 1316847931
     locked: 0
+  - name: Collectibles
+    uniqueID: 2260303217
+    locked: 0
+  - name: Player
+    uniqueID: 1480059753
+    locked: 0
