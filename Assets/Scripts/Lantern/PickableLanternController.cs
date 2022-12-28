@@ -9,7 +9,7 @@ namespace Lantern
 
         public bool isLanternPickedUp()
         {
-            if (lanternAnimator.GetBool("lanternPickedUp")) lantern.SetActive(true); // check this
+            lantern.SetActive(false); // check this
             return lanternAnimator.GetBool("lanternPickedUp");
         }
 
