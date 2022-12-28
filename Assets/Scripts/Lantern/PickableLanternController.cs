@@ -1,25 +1,15 @@
+using System;
 using UnityEngine;
 
 namespace Lantern
 {
     public class PickableLanternController : MonoBehaviour 
     {
-        public GameObject lantern;
-        public Animator lanternAnimator;
-
-        public bool isLanternPickedUp()
+        private void OnTriggerStay2D(Collider2D col)
         {
-            lantern.SetActive(false); // check this
-            return lanternAnimator.GetBool("lanternPickedUp");
-        }
-
-        private void OnTriggerEnter2D(Collider2D col)
-        {
-            if (col.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.E))
-            {
-                lanternAnimator.SetBool("lanternPickedUp", true);
-                isLanternPickedUp();
-            }
+            if (!col.CompareTag("Player") || !Input.GetKey(KeyCode.E)) return;
+            
+            Destroy(gameObject);
         }
     }
 
