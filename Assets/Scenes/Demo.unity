@@ -4130,10 +4130,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1557187751}
   - component: {fileID: 1557187750}
+  - component: {fileID: 1557187755}
   - component: {fileID: 1557187752}
   - component: {fileID: 1557187753}
   - component: {fileID: 1557187754}
-  - component: {fileID: 1557187755}
   m_Layer: 0
   m_Name: PickableLantern
   m_TagString: Untagged
@@ -4342,7 +4342,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1557187748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7c9f60c4b0905d4fac3d7b6215dfed4, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ad5c076cdd94bd4bae13df01dbbb0c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   theLight: {fileID: 1557187748}
@@ -4520,7 +4520,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1733928913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7c9f60c4b0905d4fac3d7b6215dfed4, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ad5c076cdd94bd4bae13df01dbbb0c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   theLight: {fileID: 1860214822}

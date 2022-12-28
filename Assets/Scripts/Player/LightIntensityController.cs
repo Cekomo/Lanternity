@@ -5,16 +5,16 @@ using UnityEngine.Rendering.Universal;
 
 namespace Player
 {
-    public class PlayerTorchController : MonoBehaviour
+    public class LightIntensityController : MonoBehaviour
     {
-        [SerializeField] private GameObject theLight;
+        // [SerializeField] private GameObject theLight;
         private Light2D light2d;
         private float lightIntensity;
         private float flickeringTimeDelay;
         
         void Start()
         {
-            light2d = theLight.GetComponent<Light2D>();
+            light2d = GetComponent<Light2D>();
             lightIntensity = light2d.intensity;
             
             StartCoroutine(FlickLight());
