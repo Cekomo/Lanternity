@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Lantern
+namespace Light
 {
     public class LanternController : MonoBehaviour 
     {

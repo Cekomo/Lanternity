@@ -1,38 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
-using Lantern;
+using Light;
 using UnityEngine;
 
-public class PlayerHandController : MonoBehaviour
+namespace Player
 {
-    [SerializeField] private GameObject torch;
-    [SerializeField] private GameObject lantern;
-    [SerializeField] private Animator lightItemAnimator;
-
-    private bool isTorchOrLanternPicked; 
-    
-    private void Update()
+    public class PlayerHandController : MonoBehaviour
     {
-        if (!Input.GetKeyDown(KeyCode.Q) || !PickableLanternController.IsLanternPicked()) return;
-        
-        SwitchBetweenLights();
-    }
+        [SerializeField] private GameObject torch;
+        [SerializeField] private GameObject lantern;
+        [SerializeField] private Animator lightItemAnimator;
 
-    private void SwitchBetweenLights()
-    {
-        if (isTorchOrLanternPicked)
+        private bool isTorchOrLanternPicked;
+
+        private void Update()
         {
-            torch.SetActive(false);
-            lantern.SetActive(true);
-            isTorchOrLanternPicked = false;
-            lightItemAnimator.SetBool("isTorchOrLanternPicked", true);
+            if (!Input.GetKeyDown(KeyCode.Q) || !PickableLanternController.IsLanternPicked()) return;
+
+            SwitchBetweenLights();
         }
-        else
+
+        private void SwitchBetweenLights()
         {
-            lantern.SetActive(false);
-            torch.SetActive(true);
-            isTorchOrLanternPicked = true;
-            lightItemAnimator.SetBool("isTorchOrLanternPicked", false);
+            if (isTorchOrLanternPicked)
+            {
+                torch.SetActive(false);
+                lantern.SetActive(true);
+                isTorchOrLanternPicked = false;
+                lightItemAnimator.SetBool("isTorchOrLanternPicked", true);
+            }
+            else
+            {
+                lantern.SetActive(false);
+                torch.SetActive(true);
+                isTorchOrLanternPicked = true;
+                lightItemAnimator.SetBool("isTorchOrLanternPicked", false);
+            }
         }
     }
 }
