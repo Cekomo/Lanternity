@@ -7,6 +7,7 @@ public class PlayerHandController : MonoBehaviour
 {
     [SerializeField] private GameObject torch;
     [SerializeField] private GameObject lantern;
+    [SerializeField] private Animator lightItemAnimator;
 
     private bool isTorchOrLanternPicked; 
     
@@ -24,12 +25,14 @@ public class PlayerHandController : MonoBehaviour
             torch.SetActive(false);
             lantern.SetActive(true);
             isTorchOrLanternPicked = false;
+            lightItemAnimator.SetBool("isTorchOrLanternPicked", true);
         }
         else
         {
             lantern.SetActive(false);
             torch.SetActive(true);
             isTorchOrLanternPicked = true;
+            lightItemAnimator.SetBool("isTorchOrLanternPicked", false);
         }
     }
 }
