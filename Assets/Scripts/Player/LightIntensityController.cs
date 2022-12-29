@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 namespace Player
-{
+{ // shape this into interface structure
     public class LightIntensityController : MonoBehaviour
     {
-        // [SerializeField] private GameObject theLight;
         private Light2D light2d;
         private float lightIntensity;
         private float flickeringTimeDelay;

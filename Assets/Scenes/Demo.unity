@@ -4557,6 +4557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeac8df6478c14843a30e0cc33913465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torch: {fileID: 1860214822}
+  lantern: {fileID: 420236045}
 --- !u!1 &1852652436
 GameObject:
   m_ObjectHideFlags: 0
