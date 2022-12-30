@@ -10,22 +10,32 @@ namespace Light
         private float flickeringTimeDelay;
 
         [SerializeField] private List<Light2D> lights;
+        private List<float> lightIntensities;
 
-        public void FlickLight()
+        private void Start()
         {
+            lightIntensities = new List<float>();
             foreach (var theLight in lights)
+                lightIntensities.Add(theLight.intensity);
+            // do not forget that it is not possible to firsly initialize an element by assigning
+            // C# does not allow this functionality
+        }
+        
+        public void FlickAllLights()
+        {
+            for (var i = 0; i < lights.Count; i++)
             {
-                StartCoroutine(FlickLightCoroutine(theLight));
+                StartCoroutine(FlickLightCoroutine(lights[i], lightIntensities[i]));
             }
         }
         
-        private IEnumerator FlickLightCoroutine(Light2D theLight)
+        private IEnumerator FlickLightCoroutine(Light2D theLight, float lightIntensity)
         {
             while (true)
             {
-                flickeringTimeDelay = Random.Range(0.03f, 0.15f);
+                flickeringTimeDelay = Random.Range(0.07f, 0.15f);
                 yield return new WaitForSeconds(flickeringTimeDelay);
-                theLight.intensity = Random.Range(theLight.intensity - 0.2f, theLight.intensity + 0.2f); // efficiency?
+                theLight.intensity = Random.Range(lightIntensity - 0.2f, lightIntensity + 0.2f);
             }
         }
     }

@@ -9,7 +9,7 @@ namespace Light
         
         private void Start()
         {
-            lightIntensityController.FlickLight();
+            lightIntensityController.FlickAllLights();
         }
     }
 }

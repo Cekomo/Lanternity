@@ -6,6 +6,6 @@ namespace Light
 {
     public interface ILightController
     {
-        void FlickLight();
+        void FlickAllLights();
     }
 }
