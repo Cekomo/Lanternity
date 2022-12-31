@@ -5,7 +5,7 @@ namespace Player
 {
     public class PlayerMouseHandler : MonoBehaviour
     {
-        // [SerializeField] private GameObject player;
+        [SerializeField] private Animator playerAnimator;
         private Rigidbody2D rbPlayer;
         
         private void Start()
@@ -17,7 +17,7 @@ namespace Player
         private void Update()
         {
             if (!Input.GetMouseButton(0) || rbPlayer.velocity.x > 0.1f || rbPlayer.velocity.y > 0.1f 
-                || !PickableLanternController.IsLanternPicked()) return;
+                || !playerAnimator.GetBool("isLanternPicked")) return;
             
             print("mouse toggled while standing");
         }
