@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using Light;
 using UnityEngine;
 
 namespace Player
@@ -9,15 +8,16 @@ namespace Player
         // [SerializeField] private GameObject player;
         private Rigidbody2D rbPlayer;
         
-        void Start()
+        private void Start()
         {
             rbPlayer = GetComponent<Rigidbody2D>();
         }
 
         
-        void Update()
+        private void Update()
         {
-            if (!Input.GetMouseButton(0) || rbPlayer.velocity.x > 0.1f || rbPlayer.velocity.y > 0.1f) return;
+            if (!Input.GetMouseButton(0) || rbPlayer.velocity.x > 0.1f || rbPlayer.velocity.y > 0.1f 
+                || !PickableLanternController.IsLanternPicked()) return;
             
             print("mouse toggled while standing");
         }
