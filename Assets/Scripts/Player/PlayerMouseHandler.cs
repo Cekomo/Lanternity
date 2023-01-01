@@ -17,11 +17,8 @@ namespace Player
         {
             if (!Input.GetMouseButtonDown(0) || rbPlayer.velocity.x > 0.1f || rbPlayer.velocity.y > 0.1f 
                 || !playerAnimator.GetBool("isLanternPicked")) return;
-            
-            if (!playerAnimator.GetBool("isLanternUsed"))
-                playerAnimator.SetBool("isLanternUsed", true);
-            else
-                playerAnimator.SetBool("isLanternUsed", false);
+
+            playerAnimator.SetBool("isLanternUsed", !playerAnimator.GetBool("isLanternUsed"));
         }
     }
 
