@@ -32,6 +32,9 @@ namespace Player
                 jumpingCooldown += Time.deltaTime;
             if (jumpingCooldown >= 0.25f)
                 pMovementVector2.y = Input.GetAxisRaw("Vertical");
+            
+            if (pMovementVector2.x != 0 || pMovementVector2.y != 0) // check here !
+                animator.SetBool("isLanternUsed", false);
         }
 
         private void FixedUpdate()
