@@ -7,12 +7,18 @@ namespace Player
         [SerializeField] private LayerMask platformsLayerMask;
         private CapsuleCollider2D capsuleCollider2D;
         public Animator animator;
+        
+        private static readonly int IsJumping = Animator.StringToHash("isJumping");
+        private static readonly int IsGrounded = Animator.StringToHash("isGrounded");
+        private static readonly int TakeOff = Animator.StringToHash("takeOff");
+        private static readonly int SpeedX = Animator.StringToHash("SpeedX");
+        private static readonly int SpeedY = Animator.StringToHash("SpeedY");
 
-        private readonly float pSpeedConstant = 7.5f;
-        private readonly float pJumpSpeedConstant = 20f;
+        private const float PSpeedConstant = 7.5f;
+        private const float PJumpSpeedConstant = 20f;
         private float previousMoveX;
 
-        public static Vector2 pMovementVector2;
+        private static Vector2 pMovementVector2;
         private Vector2 pSpeed;
         private Rigidbody2D pRigidbody2;
 
@@ -28,13 +34,13 @@ namespace Player
         {
             pMovementVector2.x = Input.GetAxisRaw("Horizontal");
 
-            if (IsGrounded() && jumpingCooldown < 0.25f)
+            if (CheckIfGrounded() && jumpingCooldown < 0.25f)
                 jumpingCooldown += Time.deltaTime;
             if (jumpingCooldown >= 0.25f)
                 pMovementVector2.y = Input.GetAxisRaw("Vertical");
 
             if (pMovementVector2.x != 0 || pMovementVector2.y != 0) // check here !
-                animator.SetBool("isLanternUsed", false);
+                animator.SetBool(PlayerHandController.IsLanternUsed, false);
 
         }
 
@@ -48,32 +54,32 @@ namespace Player
 
         private void MoveCharacter()
         {
-            if (IsGrounded())
+            if (CheckIfGrounded())
             {
-                if (animator.GetBool("isJumping"))
+                if (animator.GetBool(IsJumping))
                 {
                     pMovementVector2.y = 0f;
                     jumpingCooldown = 0f; // convert it reversely (initial time be 0.25f)
                 }
                 
-                animator.SetBool("isJumping", false);
-                animator.SetBool("isGrounded", true);
+                animator.SetBool(IsJumping, false);
+                animator.SetBool(IsGrounded, true);
             }
             else
             {
-                animator.SetBool("isJumping", true);
-                animator.SetBool("isGrounded", false);
+                animator.SetBool(IsJumping, true);
+                animator.SetBool(IsGrounded, false);
             }
 
             // move the rigidBody2D instead of moving the transform to prevent camera shaking 
             //..during wall contact
-            if (pMovementVector2.y > 0.1f && IsGrounded())
+            if (pMovementVector2.y > 0.1f && CheckIfGrounded())
             {
-                pRigidbody2.velocity = new Vector2(pSpeed.x, pJumpSpeedConstant);
-                animator.SetTrigger("takeOff");
+                pRigidbody2.velocity = new Vector2(pSpeed.x, PJumpSpeedConstant);
+                animator.SetTrigger(TakeOff);
             }
             else
-                pRigidbody2.velocity = new Vector2(pMovementVector2.x * pSpeedConstant, pSpeed.y);
+                pRigidbody2.velocity = new Vector2(pMovementVector2.x * PSpeedConstant, pSpeed.y);
 
             AnimateRunning(); // can be on fixedUpdate
         }
@@ -90,11 +96,11 @@ namespace Player
 
         private void AnimateRunning()
         {
-            animator.SetFloat("SpeedX", Mathf.Abs(pMovementVector2.x));
-            animator.SetFloat("SpeedY", pSpeed.y);
+            animator.SetFloat(SpeedX, Mathf.Abs(pMovementVector2.x));
+            animator.SetFloat(SpeedY, pSpeed.y);
         }
 
-        private bool IsGrounded()
+        private bool CheckIfGrounded()
         {
             // understand this later
             var bCBounds = capsuleCollider2D.bounds;

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Light
@@ -7,6 +6,9 @@ namespace Light
     {
         private static bool lanternPicked;
         private Animator lanternAnimator;
+        
+        // it is not necessary to define this boolean as hash variable
+        private static readonly int LanternPickedUp = Animator.StringToHash("lanternPickedUp");
 
         private void Start()
         {
@@ -22,7 +24,7 @@ namespace Light
         {
             if (!col.CompareTag("Player") || !Input.GetKey(KeyCode.E)) return;
 
-            lanternAnimator.SetBool("lanternPickedUp", true); // this can be adjusted
+            lanternAnimator.SetBool(LanternPickedUp, true); // this can be adjusted
             lanternPicked = true;
             gameObject.SetActive(false);
         }
