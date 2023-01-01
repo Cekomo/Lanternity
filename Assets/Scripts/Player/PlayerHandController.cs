@@ -29,17 +29,19 @@ namespace Player
 
         private void SwitchBetweenLights()
         {
+            torch.SetActive(false);
+            lantern.SetActive(false);
+            lightItemAnimator.SetBool("isLanternUsed", false); 
+
             if (isLanternPicked)
             {
                 torch.SetActive(true);
-                lantern.SetActive(false);
                 isLanternPicked = false;
                 lightItemAnimator.SetBool("isLanternPicked", false);
             }
             else
             {
                 lantern.SetActive(true);
-                torch.SetActive(false);
                 isLanternPicked = true;
                 lightItemAnimator.SetBool("isLanternPicked", true);
             }
