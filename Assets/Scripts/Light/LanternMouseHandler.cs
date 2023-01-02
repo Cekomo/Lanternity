@@ -1,27 +1,20 @@
+using System;
 using Light;
 using Player;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace Light
 {
     public class LanternMouseHandler : MonoBehaviour
     {
-    //     public static bool LanternUsageStatus;
-    //     public static bool isToggled;
-    //     
-    //     [SerializeField] private LightIntensityController lightIntensityController;
-    //     private ILightController iLightController;
-    //     [SerializeField] private Animator playerAnimator;
-    //
-    //     private void Start()
-    //     {
-    //         iLightController = lightIntensityController;
-    //     }
-    //
-    //     private void Update()
-    //     {
-    //         LanternUsageStatus = playerAnimator.GetBool(PlayerMouseHandler.IsLanternUsed);
-    //     }
+        [SerializeField] private Light2D lanternLight;
+
+        private void Update() // refactor it
+        {
+            lanternLight.pointLightOuterRadius = PlayerMouseHandler.LanternUsageStatus ? 12 : 5;
+            // lanternLight.falloffIntensity = PlayerMouseHandler.LanternUsageStatus ? falloffIntensity : falloffIntensity+0.1f;
+        }
     }
 
 }

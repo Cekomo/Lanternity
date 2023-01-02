@@ -34,9 +34,9 @@ namespace Light
             }
         }
 
-        public void FlickLanternLight(float lanternLightIntensity)
+        public void FlickLanternLight()
         {
-            StartCoroutine(FlickLanternLightCoroutine(lanternLightIntensity));
+            StartCoroutine(FlickLanternLightCoroutine());
         }
 
         private IEnumerator FlickLightsCoroutine(Light2D theLight, float lightIntensity)
@@ -49,16 +49,16 @@ namespace Light
             }
         }
 
-        private IEnumerator FlickLanternLightCoroutine(float lanternLightIntensity)
+        private IEnumerator FlickLanternLightCoroutine()
         {
             while (true)
             {
                 flickeringTimeDelay = Random.Range(0.07f, 0.15f);
                 yield return new WaitForSeconds(flickeringTimeDelay);
-
+                
                 lanternLight.intensity = !PlayerMouseHandler.LanternUsageStatus ? 
-                    Random.Range(lanternLightIntensity - 0.3f, lanternLightIntensity + 0.3f) :
-                    Random.Range(3 - 0.3f, 3 + 0.3f);
+                    Random.Range(LanternLightIntensity - 0.3f, LanternLightIntensity + 0.3f) :
+                    Random.Range(1.75f - 0.3f, 1.75f + 0.3f);
             }
         }
         

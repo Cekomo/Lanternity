@@ -5,6 +5,6 @@ namespace Light
     public interface ILightController
     {
         void FlickAllExternalLights();
-        void FlickLanternLight(float brightness);
+        void FlickLanternLight();
     }
 }

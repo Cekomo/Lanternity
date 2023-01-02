@@ -13,7 +13,7 @@ namespace Light
         {
             iLightController = lightIntensityController;
             iLightController.FlickAllExternalLights();
-            iLightController.FlickLanternLight(1);
+            iLightController.FlickLanternLight();
         }
 
     }

@@ -290,7 +290,6 @@ GameObject:
   - component: {fileID: 88756289}
   - component: {fileID: 88756290}
   - component: {fileID: 88756291}
-  - component: {fileID: 88756292}
   m_Layer: 0
   m_Name: LightController
   m_TagString: Untagged
@@ -341,22 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b1f892ec46b6e4b9106e81703e3051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAnimator: {fileID: 1733928919}
   lightIntensityController: {fileID: 88756290}
---- !u!114 &88756292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88756288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37e00ba5b4a6dec43bf15727ae51ebcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lanternLight: {fileID: 1316372431}
-  lights: []
 --- !u!1 &158030246
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +477,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 420236045}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.203, y: -0.155, z: 0}
+  m_LocalPosition: {x: 0.11, y: -0.25, z: 0}
   m_LocalScale: {x: 0.12, y: 0.12, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4410,7 +4394,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 5
+  m_PointLightOuterRadius: 10
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -4680,6 +4664,7 @@ GameObject:
   - component: {fileID: 1733928918}
   - component: {fileID: 1733928921}
   - component: {fileID: 1733928922}
+  - component: {fileID: 1733928923}
   - component: {fileID: 1733928916}
   - component: {fileID: 1733928914}
   - component: {fileID: 1733928920}
@@ -4862,6 +4847,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 1733928919}
+--- !u!114 &1733928923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733928913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa826de8c5a817a4b8a9bfca5067c4f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lanternLight: {fileID: 1316372431}
 --- !u!1 &1852652436
 GameObject:
   m_ObjectHideFlags: 0
