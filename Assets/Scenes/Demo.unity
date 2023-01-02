@@ -290,6 +290,7 @@ GameObject:
   - component: {fileID: 88756289}
   - component: {fileID: 88756290}
   - component: {fileID: 88756291}
+  - component: {fileID: 88756292}
   m_Layer: 0
   m_Name: LightController
   m_TagString: Untagged
@@ -340,7 +341,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b1f892ec46b6e4b9106e81703e3051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 1733928919}
   lightIntensityController: {fileID: 88756290}
+--- !u!114 &88756292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88756288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37e00ba5b4a6dec43bf15727ae51ebcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lanternLight: {fileID: 1316372431}
+  lights: []
 --- !u!1 &158030246
 GameObject:
   m_ObjectHideFlags: 0

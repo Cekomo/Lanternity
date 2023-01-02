@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using Player;
 
 namespace Light
 { // shape this into interface structure
@@ -9,15 +10,15 @@ namespace Light
     {
         private float flickeringTimeDelay;
 
-        [SerializeField] private Light2D lanternLight;
-        private float lanternLightIntensity;
+        [SerializeField] protected Light2D lanternLight;
+        private float LanternLightIntensity;
         
         [SerializeField] private List<Light2D> lights;
         private List<float> lightIntensities;
 
         private void Start()
         {
-            lanternLightIntensity = lanternLight.intensity;
+            LanternLightIntensity = lanternLight.intensity;
             lightIntensities = new List<float>();
             foreach (var theLight in lights)
                 lightIntensities.Add(theLight.intensity);
@@ -25,17 +26,20 @@ namespace Light
             // C# does not allow this functionality
         }
         
-        public void FlickAllLights()
+        public void FlickAllExternalLights()
         {
-            StartCoroutine(FlickLanternLightCoroutine());
-            
             for (var i = 0; i < lights.Count; i++)
             {
-                StartCoroutine(FlickLightCoroutine(lights[i], lightIntensities[i]));
+                StartCoroutine(FlickLightsCoroutine(lights[i], lightIntensities[i]));
             }
         }
-        
-        private IEnumerator FlickLightCoroutine(Light2D theLight, float lightIntensity)
+
+        public void FlickLanternLight(float lanternLightIntensity)
+        {
+            StartCoroutine(FlickLanternLightCoroutine(lanternLightIntensity));
+        }
+
+        private IEnumerator FlickLightsCoroutine(Light2D theLight, float lightIntensity)
         {
             while (true)
             {
@@ -45,14 +49,18 @@ namespace Light
             }
         }
 
-        protected IEnumerator FlickLanternLightCoroutine()
+        private IEnumerator FlickLanternLightCoroutine(float lanternLightIntensity)
         {
             while (true)
             {
                 flickeringTimeDelay = Random.Range(0.07f, 0.15f);
                 yield return new WaitForSeconds(flickeringTimeDelay);
-                lanternLight.intensity = Random.Range(lanternLightIntensity - 0.3f, lanternLightIntensity + 0.3f);
+
+                lanternLight.intensity = !PlayerMouseHandler.LanternUsageStatus ? 
+                    Random.Range(lanternLightIntensity - 0.3f, lanternLightIntensity + 0.3f) :
+                    Random.Range(3 - 0.3f, 3 + 0.3f);
             }
         }
+        
     }
 }

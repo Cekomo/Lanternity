@@ -9,6 +9,8 @@ namespace Player
         private Rigidbody2D rbPlayer;
         
         public static readonly int IsLanternUsed = Animator.StringToHash("isLanternUsed");
+
+        public static bool LanternUsageStatus;
         
         private void Start()
         {
@@ -17,6 +19,8 @@ namespace Player
 
         private void Update()
         {
+            LanternUsageStatus = playerAnimator.GetBool(IsLanternUsed);
+            
             SwitchLanternUsageWhenPressed();
         }
 
@@ -24,7 +28,7 @@ namespace Player
         {
             if (!Input.GetMouseButtonDown(0) || rbPlayer.velocity.x > 0.1f || rbPlayer.velocity.y > 0.1f 
                 || !playerAnimator.GetBool(PlayerHandController.IsLanternPicked)) return;
-
+ 
             playerAnimator.SetBool(IsLanternUsed, !playerAnimator.GetBool(IsLanternUsed));
         }
     }

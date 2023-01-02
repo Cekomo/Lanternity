@@ -1,7 +1,10 @@
+using System.Collections;
+
 namespace Light
 {
     public interface ILightController
     {
-        void FlickAllLights();
+        void FlickAllExternalLights();
+        void FlickLanternLight(float brightness);
     }
 }

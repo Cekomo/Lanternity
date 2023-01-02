@@ -1,3 +1,4 @@
+using Light;
 using UnityEngine;
 
 namespace Player
@@ -41,7 +42,6 @@ namespace Player
 
             if (pMovementVector2.x != 0 || pMovementVector2.y != 0) // check here !
                 animator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
-
         }
 
         private void FixedUpdate()
