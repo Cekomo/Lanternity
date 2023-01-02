@@ -12,6 +12,8 @@ namespace Player
         [SerializeField] private GameObject lantern;
         [SerializeField] private Animator lightItemAnimator;
 
+        public static readonly int IsLanternPicked = Animator.StringToHash("isLanternPicked");
+        
         private bool isLanternPicked;
 
         private void Start()
@@ -31,19 +33,19 @@ namespace Player
         {
             torch.SetActive(false);
             lantern.SetActive(false);
-            lightItemAnimator.SetBool("isLanternUsed", false); 
+            lightItemAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false); 
 
             if (isLanternPicked)
             {
                 torch.SetActive(true);
                 isLanternPicked = false;
-                lightItemAnimator.SetBool("isLanternPicked", false);
+                lightItemAnimator.SetBool(IsLanternPicked, false);
             }
             else
             {
                 lantern.SetActive(true);
                 isLanternPicked = true;
-                lightItemAnimator.SetBool("isLanternPicked", true);
+                lightItemAnimator.SetBool(IsLanternPicked, true);
             }
         }
     }

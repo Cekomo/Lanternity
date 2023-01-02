@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player
+namespace Dump
 {
     [CreateAssetMenu(fileName = "LightAttributeSO", menuName = "ScriptableObjects/PlayerScriptableObject", order = 1)]
     public class TorchAttributesSO : ScriptableObject
