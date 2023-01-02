@@ -324,9 +324,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad5c076cdd94bd4bae13df01dbbb0c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lanternLight: {fileID: 1316372431}
   lights:
   - {fileID: 858676764}
-  - {fileID: 1316372431}
   - {fileID: 1557187754}
 --- !u!114 &88756291
 MonoBehaviour:
