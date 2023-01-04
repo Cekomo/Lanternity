@@ -1,10 +1,8 @@
-using System;
-using Light;
 using Player;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-namespace Light
+namespace Lantern
 {
     public class LanternMouseHandler : MonoBehaviour
     {

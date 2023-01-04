@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Light
+namespace Lantern
 {
     public class PickableLanternController : MonoBehaviour
     {

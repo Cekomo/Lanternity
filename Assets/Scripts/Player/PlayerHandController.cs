@@ -1,5 +1,4 @@
-using System;
-using Light;
+using Lantern;
 using UnityEngine;
 
 namespace Player
