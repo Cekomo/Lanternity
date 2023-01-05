@@ -15,7 +15,7 @@ namespace Lantern
         private SpriteRenderer[] spiritSprites;
         
         private float scanCooldown;
-        private float scannerRadius; 
+        private float scannerRadius; // 6 unit seems suitable
 
         private void Start()
         {
@@ -37,7 +37,7 @@ namespace Lantern
                 scanCooldown -= Time.deltaTime;
                 return;
             }
-
+            print(scannerRadius);
             
             ScanSpirit();
         }
@@ -47,7 +47,36 @@ namespace Lantern
             if (!Input.GetKey(KeyCode.Z)) return;
             
             scanCooldown = 2f;
-            var numColliders = Physics2D.OverlapCircleNonAlloc(transform.position, scannerRadius, spiritColliders);
+
+            foreach (var spirit in spiritController.spirits)
+            {
+                var spiritLanternDistance = Vector3.Distance(transform.position, spirit.transform.position);
+                
+                if (spiritLanternDistance <= scannerRadius)
+                    spirit.GetComponent<Renderer>().enabled = true;
+            }
+        }
+        
+    }
+
+}
+
+/*
+            for (var i = 0; i < numColliders; i++)
+            {
+                var thecollider = spiritColliders[i];
+                var thespirit = thecollider.gameObject;
+                var spriteRenderer = thespirit.GetComponent<SpriteRenderer>();
+                if (spriteRenderer != null)
+                {
+                    spriteRenderer.enabled = true;
+                }
+
+                // spiritSprites[i].enabled = false;
+            }
+ *
+ *
+ * var numColliders = Physics2D.OverlapCircleNonAlloc(transform.position, scannerRadius, spiritColliders);
             
             for (var i = 0; i < numColliders; i++)
             {
@@ -58,11 +87,7 @@ namespace Lantern
 
                 // spiritSprites[i].enabled = false;
             }
-        }
-        
-    }
-
-}
+ */
 // for (var i = 0; i < spiritColliders.Length; i++)
 // if (Physics2D.OverlapCircleNonAlloc(transform.position, scannerRadius, spiritColliders) == i)
 // {
