@@ -1,3 +1,4 @@
+using Lantern;
 using Light;
 using UnityEngine;
 
@@ -40,8 +41,9 @@ namespace Player
             if (jumpingCooldown >= 0.25f)
                 pMovementVector2.y = Input.GetAxisRaw("Vertical");
 
-            if (pMovementVector2.x != 0 || pMovementVector2.y != 0) // check here !
-                animator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
+            if (pMovementVector2.x == 0 && pMovementVector2.y == 0) return; // check here !
+            animator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
+            LightIntensityController.LanternState = LanternFlickState.Idle;
         }
 
         private void FixedUpdate()

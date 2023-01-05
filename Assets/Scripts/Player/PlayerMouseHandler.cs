@@ -11,8 +11,6 @@ namespace Player
         
         public static readonly int IsLanternUsed = Animator.StringToHash("isLanternUsed");
 
-        public static bool LanternUsageStatus;
-        
         private void Start()
         {
             rbPlayer = GetComponent<Rigidbody2D>();
@@ -20,8 +18,8 @@ namespace Player
 
         private void Update()
         {
-            LanternUsageStatus = playerAnimator.GetBool(IsLanternUsed);
-            if (LanternUsageStatus) LightIntensityController.LanternState = LanternFlickState.UsingLantern;
+            if (playerAnimator.GetBool(IsLanternUsed)) 
+                LightIntensityController.LanternState = LanternFlickState.UsingLantern;
             
             SwitchLanternUsageWhenPressed();
         }
