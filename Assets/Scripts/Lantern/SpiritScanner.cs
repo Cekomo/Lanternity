@@ -48,12 +48,15 @@ namespace Lantern
             
             scanCooldown = 2f;
 
+            var i = 0;
             foreach (var spirit in spiritController.spirits)
             {
                 var spiritLanternDistance = Vector3.Distance(transform.position, spirit.transform.position);
-                
+
                 if (spiritLanternDistance <= scannerRadius)
-                    spirit.GetComponent<Renderer>().enabled = true;
+                    spiritSprites[i].enabled = true;
+                
+                i++;
             }
         }
         
