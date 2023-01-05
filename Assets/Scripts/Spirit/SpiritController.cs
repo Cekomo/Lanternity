@@ -6,9 +6,7 @@ namespace Spirit
 {
     public class SpiritController : MonoBehaviour
     {
-        [SerializeField] private List<GameObject> spirits;
-        
-        
+        public List<GameObject> spirits;
     }
 
 }
