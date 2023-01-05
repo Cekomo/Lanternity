@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Lantern;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using Player;
@@ -49,16 +50,21 @@ namespace Light
             }
         }
 
-        private IEnumerator FlickLanternLightCoroutine()
+        private IEnumerator FlickLanternLightCoroutine() // it is better to express flick states with enum
         {
             while (true)
             {
                 flickeringTimeDelay = Random.Range(0.07f, 0.15f);
                 yield return new WaitForSeconds(flickeringTimeDelay);
-                
-                lanternLight.intensity = !PlayerMouseHandler.LanternUsageStatus ? 
-                    Random.Range(LanternLightIntensity - 0.3f, LanternLightIntensity + 0.3f) :
-                    Random.Range(1.75f - 0.3f, 1.75f + 0.3f);
+
+                if (SpiritDetector.IsSpiritDetected)
+                    lanternLight.intensity = Random.Range(LanternLightIntensity - 0.8f, LanternLightIntensity + 0.8f);
+                else
+                {
+                    lanternLight.intensity = !PlayerMouseHandler.LanternUsageStatus
+                        ? Random.Range(LanternLightIntensity - 0.3f, LanternLightIntensity + 0.3f)
+                        : Random.Range(1.75f - 0.3f, 1.75f + 0.3f);
+                }
             }
         }
         

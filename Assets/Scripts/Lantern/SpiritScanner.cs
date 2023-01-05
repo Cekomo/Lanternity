@@ -9,35 +9,29 @@ namespace Lantern
     public class SpiritScanner : MonoBehaviour
     {
         public SpiritController spiritController;
-        // private List<CircleCollider2D> spiritColliders;
 
-        private Collider2D[] spiritColliders;
         private SpriteRenderer[] spiritSprites;
-        
+
         private float scanCooldown;
         private float scannerRadius; // 6 unit seems suitable
 
         private void Start()
         {
-            scannerRadius = GetComponent<CircleCollider2D>().radius;
-            spiritColliders = new Collider2D[spiritController.spirits.Count];
+            scannerRadius = GetComponent<CircleCollider2D>().radius - 14;
+            
             spiritSprites = new SpriteRenderer[spiritController.spirits.Count];
 
             for (var i = 0; i < spiritController.spirits.Count; i++)
                 spiritSprites[i] = spiritController.spirits[i].GetComponent<SpriteRenderer>();
-            for (var i = 0; i < spiritController.spirits.Count; i++)
-                spiritColliders[i] = spiritController.spirits[i].GetComponent<Collider2D>();
         }
 
         private void Update()
         {
-            // print(scanCooldown);
             if (scanCooldown > 0)
             {
                 scanCooldown -= Time.deltaTime;
                 return;
             }
-            print(scannerRadius);
             
             ScanSpirit();
         }
@@ -59,40 +53,5 @@ namespace Lantern
                 i++;
             }
         }
-        
     }
-
 }
-
-/*
-            for (var i = 0; i < numColliders; i++)
-            {
-                var thecollider = spiritColliders[i];
-                var thespirit = thecollider.gameObject;
-                var spriteRenderer = thespirit.GetComponent<SpriteRenderer>();
-                if (spriteRenderer != null)
-                {
-                    spriteRenderer.enabled = true;
-                }
-
-                // spiritSprites[i].enabled = false;
-            }
- *
- *
- * var numColliders = Physics2D.OverlapCircleNonAlloc(transform.position, scannerRadius, spiritColliders);
-            
-            for (var i = 0; i < numColliders; i++)
-            {
-                var thecollider = spiritColliders[i];
-                var thespirit = thecollider.gameObject;
-                var spriteRenderer = thespirit.GetComponent<SpriteRenderer>();
-                spriteRenderer.enabled = true;
-
-                // spiritSprites[i].enabled = false;
-            }
- */
-// for (var i = 0; i < spiritColliders.Length; i++)
-// if (Physics2D.OverlapCircleNonAlloc(transform.position, scannerRadius, spiritColliders) == i)
-// {
-//     spiritController.spirits[i].SetActive(true);
-// }
