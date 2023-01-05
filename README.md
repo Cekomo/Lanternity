@@ -6,4 +6,3 @@ Try to escape from spirit vale by using soul lantern
 
 # Parts to be refactored
 - Split playerMovement script 
-- Create enum class to represent each light flicking state

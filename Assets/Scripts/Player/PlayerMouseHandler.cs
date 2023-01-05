@@ -1,3 +1,4 @@
+using Lantern;
 using Light;
 using UnityEngine;
 
@@ -20,6 +21,7 @@ namespace Player
         private void Update()
         {
             LanternUsageStatus = playerAnimator.GetBool(IsLanternUsed);
+            if (LanternUsageStatus) LightIntensityController.LanternState = LanternFlickState.UsingLantern;
             
             SwitchLanternUsageWhenPressed();
         }

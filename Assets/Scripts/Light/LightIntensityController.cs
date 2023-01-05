@@ -9,6 +9,8 @@ namespace Light
 { // shape this into interface structure
     public class LightIntensityController : MonoBehaviour, ILightController
     {
+        [HideInInspector] public static LanternFlickState LanternState;
+        
         private float flickeringTimeDelay;
 
         [SerializeField] protected Light2D lanternLight;
@@ -50,6 +52,24 @@ namespace Light
             }
         }
 
+        // private IEnumerator FlickLanternLightCoroutine() // it is better to express flick states with enum
+        // {
+        //     while (true)
+        //     {
+        //         flickeringTimeDelay = Random.Range(0.07f, 0.15f);
+        //         yield return new WaitForSeconds(flickeringTimeDelay);
+        //
+        //         if (SpiritDetector.IsSpiritDetected)
+        //             lanternLight.intensity = Random.Range(LanternLightIntensity - 0.8f, LanternLightIntensity + 0.8f);
+        //         else
+        //         {
+        //             lanternLight.intensity = !PlayerMouseHandler.LanternUsageStatus
+        //                 ? Random.Range(LanternLightIntensity - 0.3f, LanternLightIntensity + 0.3f)
+        //                 : Random.Range(1.75f - 0.3f, 1.75f + 0.3f);
+        //         }
+        //     }
+        // }
+        
         private IEnumerator FlickLanternLightCoroutine() // it is better to express flick states with enum
         {
             while (true)
@@ -57,16 +77,15 @@ namespace Light
                 flickeringTimeDelay = Random.Range(0.07f, 0.15f);
                 yield return new WaitForSeconds(flickeringTimeDelay);
 
-                if (SpiritDetector.IsSpiritDetected)
-                    lanternLight.intensity = Random.Range(LanternLightIntensity - 0.8f, LanternLightIntensity + 0.8f);
-                else
+                // new switch structure coming with c# 8.0
+                lanternLight.intensity = LanternState switch
                 {
-                    lanternLight.intensity = !PlayerMouseHandler.LanternUsageStatus
-                        ? Random.Range(LanternLightIntensity - 0.3f, LanternLightIntensity + 0.3f)
-                        : Random.Range(1.75f - 0.3f, 1.75f + 0.3f);
-                }
+                    LanternFlickState.Idle => Random.Range(LanternLightIntensity - 0.3f, LanternLightIntensity + 0.3f),
+                    LanternFlickState.DetectingSpirit => Random.Range(LanternLightIntensity-0.8f, LanternLightIntensity+0.8f),
+                    LanternFlickState.UsingLantern => Random.Range(1.75f - 0.3f, 1.75f + 0.3f),
+                    _ => lanternLight.intensity
+                };
             }
         }
-        
     }
 }
