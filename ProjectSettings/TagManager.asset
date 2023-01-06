@@ -54,6 +54,9 @@ TagManager:
   - name: Collectibles
     uniqueID: 2260303217
     locked: 0
+  - name: Spirits
+    uniqueID: 1190605633
+    locked: 0
   - name: Player
     uniqueID: 1480059753
     locked: 0

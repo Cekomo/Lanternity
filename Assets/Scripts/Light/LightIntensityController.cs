@@ -9,7 +9,7 @@ namespace Light
 { // shape this into interface structure
     public class LightIntensityController : MonoBehaviour, ILightController
     {
-        [HideInInspector] public static LanternFlickState LanternState;
+        public static LanternFlickState LanternState;
         
         private float flickeringTimeDelay;
 
@@ -25,7 +25,7 @@ namespace Light
             lightIntensities = new List<float>();
             foreach (var theLight in lights)
                 lightIntensities.Add(theLight.intensity);
-            // do not forget that it is not possible to firsly initialize an element by assigning
+            // do not forget that it is not possible to firstly initialize an element by assigning
             // C# does not allow this functionality
         }
         
@@ -59,11 +59,11 @@ namespace Light
                 flickeringTimeDelay = Random.Range(0.07f, 0.15f);
                 yield return new WaitForSeconds(flickeringTimeDelay);
 
-                ExecuteByFlickState();
+                ExecuteConsideringFlickState();
             }
         }
 
-        private void ExecuteByFlickState()
+        private void ExecuteConsideringFlickState()
         {
             // new switch structure coming with c# 8.0
             lanternLight.intensity = LanternState switch
