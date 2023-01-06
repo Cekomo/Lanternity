@@ -13,7 +13,7 @@ namespace Lantern
             lanternAnimator = GetComponent<Animator>();
         }
 
-        public static bool IsLanternPicked()
+        public static bool IsLanternPicked() // can be made single variable
         {
             return lanternPicked;
         }

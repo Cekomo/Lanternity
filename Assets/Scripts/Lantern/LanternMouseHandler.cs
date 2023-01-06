@@ -1,6 +1,4 @@
-using System;
 using Light;
-using Player;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 

@@ -108,7 +108,7 @@ namespace Player
             var bCBounds = capsuleCollider2D.bounds;
             RaycastHit2D raycastHit2D = Physics2D.BoxCast(bCBounds.center, bCBounds.size,
                 0f, Vector2.down, 0.1f, platformsLayerMask);
-            return raycastHit2D.collider != null;
+            return !ReferenceEquals(raycastHit2D.collider, null); // changed from raycastHit2D.collider != null;
         }
     }
 
