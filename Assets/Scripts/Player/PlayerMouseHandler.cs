@@ -18,8 +18,11 @@ namespace Player
 
         private void Update()
         {
-            if (playerAnimator.GetBool(IsLanternUsed)) 
+            if (playerAnimator.GetBool(IsLanternUsed))
+            {
                 LightIntensityController.LanternState = LanternFlickState.UsingLantern;
+                PlayerHandController.playerCarryState = PlayerCarryState.UseLantern;
+            }
             
             SwitchLanternUsageWhenPressed();
         }

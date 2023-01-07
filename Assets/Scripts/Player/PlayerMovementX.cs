@@ -7,35 +7,20 @@ namespace Player
         private static readonly int SpeedX = Animator.StringToHash("SpeedX");
 
         private const float RUNNING_SPEED = 8f;
-        private const float WALKING_SPEED = 5f;
+        private const float WALKING_SPEED = 6f;
 
         private float previousMoveX;
         private static float movementVector2_X;
         private Vector2 playerSpeed;
 
-        public static PlayerMovementState playerMovementState;
+        private static PlayerMovementState playerMovementState;
         
         void Update()
         {
             movementVector2_X = Input.GetAxisRaw("Horizontal");
-            print(movementVector2_X);
-            switch (PlayerHandController.playerCarryState)
-            {
-                case PlayerCarryState.CarryTorch:
-                    playerMovementState = movementVector2_X == 1 
-                        ? PlayerMovementState.RunningRight : PlayerMovementState.RunningLeft;
-                    break;
-                case PlayerCarryState.CarryLantern:
-                    playerMovementState = movementVector2_X == 1 
-                        ? PlayerMovementState.WalkingRight : PlayerMovementState.WalkingLeft;
-                    break;
-                case PlayerCarryState.UseLantern:
-                    PlayerHandController.playerCarryState = movementVector2_X != 0
-                        ? PlayerCarryState.CarryLantern : PlayerCarryState.UseLantern;
-                    break;
-            }
 
-            if (movementVector2_X != 0)
+            PlayerAnimator.SetFloat(SpeedX, Mathf.Abs(movementVector2_X));
+            if (movementVector2_X != 0) // refactor this
                 PlayerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
         }
 
@@ -43,33 +28,31 @@ namespace Player
         {
             playerSpeed = rbPlayer.velocity; // convert it to X axis if possible
             
-            MoveCharacterX();
+            MovePlayerX();
         }
 
-        private void MoveCharacterX()
+        private void MovePlayerX() // refactor this method after big picture is done
         {
             // left right directions will be adjusted after direction-sensitive
             //..animations are added
-            PlayerAnimator.SetFloat(SpeedX, Mathf.Abs(movementVector2_X));
-            
-            switch (playerMovementState)
+            switch (PlayerHandController.playerCarryState)
             {
-                case PlayerMovementState.Idle:
-                    break;
-                case PlayerMovementState.RunningLeft:
+                case PlayerCarryState.CarryTorch:
+                    playerMovementState = movementVector2_X == 1 
+                        ? PlayerMovementState.RunningRight : PlayerMovementState.RunningLeft;
                     rbPlayer.velocity = new Vector2(movementVector2_X * RUNNING_SPEED, playerSpeed.y);
                     break;
-                case PlayerMovementState.RunningRight:
-                    rbPlayer.velocity = new Vector2(movementVector2_X * RUNNING_SPEED, playerSpeed.y);
-                    break;
-                case PlayerMovementState.WalkingLeft:
+                case PlayerCarryState.CarryLantern:
+                    playerMovementState = movementVector2_X == 1 
+                        ? PlayerMovementState.WalkingRight : PlayerMovementState.WalkingLeft;
                     rbPlayer.velocity = new Vector2(movementVector2_X * WALKING_SPEED, playerSpeed.y);
                     break;
-                case PlayerMovementState.WalkingRight:
-                    rbPlayer.velocity = new Vector2(movementVector2_X * WALKING_SPEED, playerSpeed.y);
-                break;
+                case PlayerCarryState.UseLantern:
+                    PlayerHandController.playerCarryState = movementVector2_X != 0
+                        ? PlayerCarryState.CarryLantern : PlayerCarryState.UseLantern;
+                    break;
             }
-
+            
             FaceTowards();
         }
 
