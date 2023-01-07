@@ -13,10 +13,8 @@ namespace Player
         private static readonly int IsJumping = Animator.StringToHash("isJumping");
         private static readonly int IsGrounded = Animator.StringToHash("isGrounded");
         private static readonly int TakeOff = Animator.StringToHash("takeOff");
-        private static readonly int SpeedX = Animator.StringToHash("SpeedX");
         private static readonly int SpeedY = Animator.StringToHash("SpeedY");
         
-        private const float pSpeedConstant = 7.5f;
         private const float pJumpSpeedConstant = 20f;
         private float previousMoveX;
 
@@ -34,8 +32,6 @@ namespace Player
 
         public void Update() // anything receives input should be inside update instead of fixedUpdate
         {
-            pMovementVector2.x = Input.GetAxisRaw("Horizontal");
-
             if (CheckIfGrounded() && jumpingCooldown < 0.25f)
                 jumpingCooldown += Time.deltaTime;
             if (jumpingCooldown >= 0.25f)
@@ -51,7 +47,6 @@ namespace Player
             pSpeed = pRigidbody2.velocity;
 
             MoveCharacter();
-            FaceTowards();
         }
 
         private void MoveCharacter()
@@ -80,25 +75,12 @@ namespace Player
                 pRigidbody2.velocity = new Vector2(pSpeed.x, pJumpSpeedConstant);
                 animator.SetTrigger(TakeOff);
             }
-            else
-                pRigidbody2.velocity = new Vector2(pMovementVector2.x * pSpeedConstant, pSpeed.y);
 
             AnimateRunning(); // can be on fixedUpdate
         }
 
-        private void FaceTowards()
-        {
-            if ((int)previousMoveX == (int)pMovementVector2.x) return;
-
-            if (pMovementVector2.x != 0)
-                transform.localScale = new Vector3(2.15f * pMovementVector2.x, 2.15f, 1);
-
-            previousMoveX = pMovementVector2.x;
-        }
-
         private void AnimateRunning()
         {
-            animator.SetFloat(SpeedX, Mathf.Abs(pMovementVector2.x));
             animator.SetFloat(SpeedY, pSpeed.y);
         }
 

@@ -38,17 +38,17 @@ namespace Player
 
             if (isLanternPicked)
             {
-                playerCarryState = PlayerCarryState.CarryLantern;
                 torch.SetActive(true);
                 isLanternPicked = false;
                 lightItemAnimator.SetBool(IsLanternPicked, false);
+                playerCarryState = PlayerCarryState.CarryTorch; // using it before isLanternPicked causes miscall
             }
             else
             {
-                playerCarryState = PlayerCarryState.CarryTorch;
                 lantern.SetActive(true);
                 isLanternPicked = true;
                 lightItemAnimator.SetBool(IsLanternPicked, true);
+                playerCarryState = PlayerCarryState.CarryLantern;
             }
         }
     }

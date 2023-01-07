@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Lantern;
 
 namespace Player
 {
@@ -17,41 +14,39 @@ namespace Player
         private Vector2 playerSpeed;
 
         public static PlayerMovementState playerMovementState;
-        public static PlayerCarryState playerCarryState;
         
-
-        // Update is called once per frame
         void Update()
         {
             movementVector2_X = Input.GetAxisRaw("Horizontal");
-
+            print(movementVector2_X);
             switch (PlayerHandController.playerCarryState)
             {
                 case PlayerCarryState.CarryTorch:
-                    playerMovementState = movementVector2_X == 1 ? 
-                        PlayerMovementState.RunningRight : PlayerMovementState.RunningLeft;
+                    playerMovementState = movementVector2_X == 1 
+                        ? PlayerMovementState.RunningRight : PlayerMovementState.RunningLeft;
                     break;
                 case PlayerCarryState.CarryLantern:
-                    playerMovementState = movementVector2_X == 1 ?
-                        PlayerMovementState.WalkingRight : PlayerMovementState.WalkingLeft;
+                    playerMovementState = movementVector2_X == 1 
+                        ? PlayerMovementState.WalkingRight : PlayerMovementState.WalkingLeft;
+                    break;
+                case PlayerCarryState.UseLantern:
+                    PlayerHandController.playerCarryState = movementVector2_X != 0
+                        ? PlayerCarryState.CarryLantern : PlayerCarryState.UseLantern;
                     break;
             }
 
+            if (movementVector2_X != 0)
+                PlayerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
         }
 
         void FixedUpdate()
         {
             playerSpeed = rbPlayer.velocity; // convert it to X axis if possible
-
-            MoveCharacter();
+            
+            MoveCharacterX();
         }
 
-        // private void DeterminePlayerDirection(PlayerCarryState enumState, int direction)
-        // {
-        //     if (enumState == PlayerCarryState.UseLantern)
-        // }
-
-        private void MoveCharacter()
+        private void MoveCharacterX()
         {
             // left right directions will be adjusted after direction-sensitive
             //..animations are added

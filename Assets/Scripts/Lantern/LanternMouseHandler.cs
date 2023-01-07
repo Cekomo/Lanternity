@@ -22,7 +22,6 @@ namespace Lantern
             else 
             {
                 lanternLight.pointLightOuterRadius = 5f;
-                PlayerHandController.playerCarryState = PlayerCarryState.CarryLantern;
             }
             
             if (Input.GetMouseButtonDown(0) && LightIntensityController.LanternState == LanternFlickState.UsingLantern)
