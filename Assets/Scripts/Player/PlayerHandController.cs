@@ -5,6 +5,8 @@ namespace Player
 {
     public class PlayerHandController : MonoBehaviour
     {
+        public static PlayerCarryState playerCarryState;
+        
         private Rigidbody2D rbPlayer;
         
         [SerializeField] private GameObject torch;
@@ -36,12 +38,14 @@ namespace Player
 
             if (isLanternPicked)
             {
+                playerCarryState = PlayerCarryState.CarryLantern;
                 torch.SetActive(true);
                 isLanternPicked = false;
                 lightItemAnimator.SetBool(IsLanternPicked, false);
             }
             else
             {
+                playerCarryState = PlayerCarryState.CarryTorch;
                 lantern.SetActive(true);
                 isLanternPicked = true;
                 lightItemAnimator.SetBool(IsLanternPicked, true);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerProperties : MonoBehaviour
 {
-    private Rigidbody2D rbPlayer;
+    [HideInInspector] public Rigidbody2D rbPlayer;
     
     public Animator PlayerAnimator;
     public LayerMask PlatformsLayerMask;

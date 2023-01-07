@@ -4,7 +4,6 @@ namespace Player
     {
         CarryTorch,
         CarryLantern,
-        UseTorch,
         UseLantern  
     }
 }
