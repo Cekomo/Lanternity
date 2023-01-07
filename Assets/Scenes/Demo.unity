@@ -5361,10 +5361,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e764c145017319042a9ccea286e5661b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformsLayerMask:
+  rbPlayer: {fileID: 0}
+  PlayerAnimator: {fileID: 1733928919}
+  PlatformsLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  animator: {fileID: 1733928919}
+  CapsuleCollider: {fileID: 0}
 --- !u!95 &1733928919
 Animator:
   serializedVersion: 4
