@@ -1,4 +1,6 @@
 using UnityEngine;
+using Light;
+using Lantern;
 
 namespace Player
 {
@@ -22,6 +24,10 @@ namespace Player
             PlayerAnimator.SetFloat(SpeedX, Mathf.Abs(movementVector2_X));
             if (movementVector2_X != 0) // refactor this
                 PlayerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
+            
+            if (movementVector2_X == 0) return; // check here !
+            PlayerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
+            LightIntensityController.LanternState = LanternFlickState.Idle;
         }
 
         void FixedUpdate()
