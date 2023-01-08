@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace Player
 {
-    public class PlayerMovement : PlayerProperties
+    public class PlayerMovementY : PlayerProperties
     {
+        private static readonly int SpeedY = Animator.StringToHash("SpeedY");
+        private static readonly int TakeOff = Animator.StringToHash("takeOff");
         private static readonly int IsJumping = Animator.StringToHash("isJumping");
         private static readonly int IsGrounded = Animator.StringToHash("isGrounded");
-        private static readonly int TakeOff = Animator.StringToHash("takeOff");
-        private static readonly int SpeedY = Animator.StringToHash("SpeedY");
-        
+
         private const float pJumpSpeedConstant = 20f;
 
         private static Vector2 pMovementVector2;
@@ -33,10 +33,10 @@ namespace Player
         {
             playerSpeed = rbPlayer.velocity;
 
-            MoveCharacter();
+            MovePlayerY();
         }
 
-        private void MoveCharacter()
+        private void MovePlayerY()
         {
             if (CheckIfGrounded())
             {
@@ -73,7 +73,6 @@ namespace Player
 
         private bool CheckIfGrounded()
         {
-            // understand this later
             var bCBounds = CapsuleCollider.bounds;
             RaycastHit2D raycastHit2D = Physics2D.BoxCast(bCBounds.center, bCBounds.size,
                 0f, Vector2.down, 0.1f, PlatformsLayerMask);
