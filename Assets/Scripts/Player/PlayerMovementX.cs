@@ -11,8 +11,9 @@ namespace Player
         private const float RUNNING_SPEED = 8f;
         private const float WALKING_SPEED = 6f;
 
-        private float previousMoveX;
+        
         private static float movementVector2_X;
+        private float previousMoveX;
         private Vector2 playerSpeed;
 
         private static PlayerMovementState playerMovementState;

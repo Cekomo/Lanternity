@@ -16,14 +16,10 @@ namespace Player
 
         private static float movementVector2_Y;
         private Vector2 playerSpeed;
-        
 
         public void Update() // anything receives input should be inside update instead of fixedUpdate
         {
-            if (CheckIfGrounded() && jumpingCooldown < 0.25f)
-                jumpingCooldown += Time.deltaTime;
-            if (jumpingCooldown >= 0.25f)
-                movementVector2_Y = Input.GetAxisRaw("Vertical");
+            AllowJumpConsideringCooldown();
 
             if (movementVector2_Y == 0) return; // check here !
             PlayerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
@@ -49,6 +45,14 @@ namespace Player
             PlayerAnimator.SetTrigger(TakeOff);
         }
 
+        private void AllowJumpConsideringCooldown()
+        {
+            if (jumpingCooldown >= 0.25f)
+                movementVector2_Y = Input.GetAxisRaw("Vertical");
+            else if (CheckIfGrounded())
+                jumpingCooldown += Time.deltaTime; // !this variable only got reset when jumping is triggered!
+        }
+        
         private void ResetValuesIfPlayerJumped()
         {
             if (!PlayerAnimator.GetBool(IsJumping)) return;
