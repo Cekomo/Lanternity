@@ -7,14 +7,13 @@ namespace Player
     public class PlayerMovementX : PlayerProperties
     {
         private static readonly int SpeedX = Animator.StringToHash("SpeedX");
+        private Vector2 playerSpeed;
 
         private const float RUNNING_SPEED = 8f;
         private const float WALKING_SPEED = 6f;
-
         
         private static float movementVector2_X;
         private float previousMoveX;
-        private Vector2 playerSpeed;
 
         private static PlayerMovementState playerMovementState;
         
@@ -34,7 +33,7 @@ namespace Player
         void FixedUpdate()
         {
             playerSpeed = rbPlayer.velocity; // convert it to X axis if possible
-            
+        
             MovePlayerX();
         }
 

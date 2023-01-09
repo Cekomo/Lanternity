@@ -7,6 +7,8 @@ namespace Player
     public class PlayerMovementY : PlayerProperties
     {
         private static readonly int SpeedY = Animator.StringToHash("SpeedY");
+        private Vector2 playerSpeed;
+        
         private static readonly int TakeOff = Animator.StringToHash("takeOff");
         private static readonly int IsJumping = Animator.StringToHash("isJumping");
         private static readonly int IsGrounded = Animator.StringToHash("isGrounded");
@@ -15,7 +17,6 @@ namespace Player
         private float jumpingCooldown;
 
         private static float movementVector2_Y;
-        private Vector2 playerSpeed;
 
         public void Update() // anything receives input should be inside update instead of fixedUpdate
         {

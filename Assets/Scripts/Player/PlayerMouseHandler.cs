@@ -1,6 +1,7 @@
 using Lantern;
 using Light;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace Player
 {
@@ -8,7 +9,7 @@ namespace Player
     {
         [SerializeField] private Animator playerAnimator;
         private Rigidbody2D rbPlayer;
-        [SerializeField] private UnityEngine.Rendering.Universal.Light2D lanternLight;
+        [SerializeField] private Light2D lanternLight;
         
         public static readonly int IsLanternUsed = Animator.StringToHash("isLanternUsed");
 
