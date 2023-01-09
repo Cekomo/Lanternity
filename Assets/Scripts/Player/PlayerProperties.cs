@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerProperties : MonoBehaviour
 {    
-    public static Rigidbody2D rbPlayer; // check if static use causing any problem
+    protected static Rigidbody2D rbPlayer; // check if static use causing any problem
     
     public Animator PlayerAnimator;
     public LayerMask PlatformsLayerMask;

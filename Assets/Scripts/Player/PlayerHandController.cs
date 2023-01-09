@@ -6,9 +6,7 @@ namespace Player
     public class PlayerHandController : MonoBehaviour
     {
         public static PlayerCarryState playerCarryState;
-        
-        private Rigidbody2D rbPlayer;
-        
+
         [SerializeField] private GameObject torch;
         [SerializeField] private GameObject lantern;
         [SerializeField] private Animator lightItemAnimator;
@@ -16,11 +14,6 @@ namespace Player
         public static readonly int IsLanternPicked = Animator.StringToHash("isLanternPicked");
         
         private bool isLanternPicked;
-
-        private void Start()
-        {
-            rbPlayer = GetComponent<Rigidbody2D>();
-        }
 
         private void Update()
         {
@@ -31,12 +24,12 @@ namespace Player
             SwitchBetweenLights();
         }
 
-        public void SwitchBetweenLights()
+        private void SwitchBetweenLights()
         {
             torch.SetActive(false);
             lantern.SetActive(false);
-            lightItemAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false); 
-
+            lightItemAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
+            print("flagged");
             if (isLanternPicked)
             {
                 torch.SetActive(true);

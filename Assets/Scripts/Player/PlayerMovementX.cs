@@ -21,6 +21,7 @@ namespace Player
         {
             movementVector2_X = Input.GetAxisRaw("Horizontal");
             PlayerAnimator.SetFloat(SpeedX, Mathf.Abs(movementVector2_X));
+            print(PlayerHandController.playerCarryState);
         }
 
         void FixedUpdate()

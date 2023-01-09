@@ -17,7 +17,7 @@ namespace Lantern
             if (playerAnimator.GetBool(PlayerMouseHandler.IsLanternUsed))
             {
                 LightIntensityController.LanternState = LanternFlickState.UsingLantern;
-                PlayerHandController.playerCarryState = PlayerCarryState.UseLantern;
+                // PlayerHandController.playerCarryState = PlayerCarryState.UseLantern;
             }
 
             lanternLight.pointLightOuterRadius = 
@@ -26,9 +26,10 @@ namespace Lantern
             if (Input.GetMouseButtonDown(0) && LightIntensityController.LanternState == LanternFlickState.UsingLantern)
                 LightIntensityController.LanternState = LanternFlickState.Idle;
 
-            if (PlayerProperties.CheckIfPlayerMoving()) return; // check here !
+            if (!PlayerProperties.CheckIfPlayerMoving()) return; // check here !
             playerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
             LightIntensityController.LanternState = LanternFlickState.Idle;
+            PlayerHandController.playerCarryState = PlayerCarryState.CarryLantern;
         }
     }
 }
