@@ -585,7 +585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &290647668
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -775,7 +775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &387047726
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5468,7 +5468,6 @@ GameObject:
   - component: {fileID: 1733928925}
   - component: {fileID: 1733928921}
   - component: {fileID: 1733928922}
-  - component: {fileID: 1733928923}
   - component: {fileID: 1733928916}
   - component: {fileID: 1733928914}
   - component: {fileID: 1733928920}
@@ -5635,18 +5634,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 1733928919}
---- !u!114 &1733928923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1733928913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa826de8c5a817a4b8a9bfca5067c4f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   lanternLight: {fileID: 1316372431}
 --- !u!114 &1733928924
 MonoBehaviour:
@@ -5893,7 +5880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &2023574874
 BoxCollider2D:
   m_ObjectHideFlags: 0

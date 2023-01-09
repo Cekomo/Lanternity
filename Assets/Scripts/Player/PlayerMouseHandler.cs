@@ -8,6 +8,7 @@ namespace Player
     {
         [SerializeField] private Animator playerAnimator;
         private Rigidbody2D rbPlayer;
+        [SerializeField] private UnityEngine.Rendering.Universal.Light2D lanternLight;
         
         public static readonly int IsLanternUsed = Animator.StringToHash("isLanternUsed");
 
@@ -24,6 +25,12 @@ namespace Player
                 PlayerHandController.playerCarryState = PlayerCarryState.UseLantern;
             }
             
+            lanternLight.pointLightOuterRadius = 
+                LightIntensityController.LanternState == LanternFlickState.UsingLantern ? 12f : 5f;
+            
+            if (Input.GetMouseButtonDown(0) && LightIntensityController.LanternState == LanternFlickState.UsingLantern)
+                LightIntensityController.LanternState = LanternFlickState.Idle;
+
             SwitchLanternUsageWhenPressed();
         }
 
