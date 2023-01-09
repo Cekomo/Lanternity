@@ -24,13 +24,14 @@ namespace Player
 
         private void Update()
         {
+            //HERE!-----------------------
             if (!Input.GetKeyDown(KeyCode.Q) || !PickableLanternController.IsLanternPicked()
-                || rbPlayer.velocity.x != 0 || rbPlayer.velocity.y != 0) return;
+                || PlayerProperties.CheckIfPlayerMoving()) return;
 
             SwitchBetweenLights();
         }
 
-        private void SwitchBetweenLights()
+        public void SwitchBetweenLights()
         {
             torch.SetActive(false);
             lantern.SetActive(false);

@@ -21,10 +21,6 @@ namespace Player
         public void Update() // anything receives input should be inside update instead of fixedUpdate
         {
             AllowJumpConsideringCooldown();
-
-            if (movementVector2_Y == 0) return; // check here !
-            PlayerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
-            LightIntensityController.LanternState = LanternFlickState.Idle;
         }
 
         private void FixedUpdate()
