@@ -7,7 +7,6 @@ namespace Player
     public class PlayerMovementY : PlayerProperties
     {
         private static readonly int SpeedY = Animator.StringToHash("SpeedY");
-        private Vector2 playerSpeed;
         
         private static readonly int TakeOff = Animator.StringToHash("takeOff");
         private static readonly int IsJumping = Animator.StringToHash("isJumping");
@@ -16,6 +15,7 @@ namespace Player
         private const float JUMPING_SPEED = 20f;
         private float jumpingCooldown;
 
+        // private Vector2 playerSpeed;
         private static float movementVector2_Y;
 
         public void Update() // anything receives input should be inside update instead of fixedUpdate
@@ -24,9 +24,7 @@ namespace Player
         }
 
         private void FixedUpdate()
-        {
-            playerSpeed = rbPlayer.velocity;
-
+        {            
             ResetValuesIfPlayerJumped();
             JumpPlayer();
         }
@@ -38,7 +36,7 @@ namespace Player
             // move the rigidBody2D instead of moving the transform to prevent camera shaking 
             //..during wall contact
             if (!(movementVector2_Y > 0.1f) || !CheckIfGrounded()) return;
-            rbPlayer.velocity = new Vector2(playerSpeed.x, JUMPING_SPEED);
+            rbPlayer.velocity = new Vector2(GetPlayerVelocity().x, JUMPING_SPEED);
             PlayerAnimator.SetTrigger(TakeOff);
         }
 
@@ -61,7 +59,7 @@ namespace Player
         {
             PlayerAnimator.SetBool(IsJumping, !CheckIfGrounded());
             PlayerAnimator.SetBool(IsGrounded, CheckIfGrounded());
-            PlayerAnimator.SetFloat(SpeedY, playerSpeed.y);
+            PlayerAnimator.SetFloat(SpeedY, GetPlayerVelocity().y);
         }
 
         private bool CheckIfGrounded()

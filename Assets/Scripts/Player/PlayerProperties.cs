@@ -1,9 +1,9 @@
 using UnityEngine;
 
 public class PlayerProperties : MonoBehaviour
-{    
-    protected static Rigidbody2D rbPlayer; // check if static use causing any problem
-    
+{        
+    public static Rigidbody2D rbPlayer;
+
     public Animator PlayerAnimator;
     public LayerMask PlatformsLayerMask;
     
@@ -11,8 +11,13 @@ public class PlayerProperties : MonoBehaviour
 
     public void Start()
     {
-        rbPlayer = GetComponent<Rigidbody2D>();
         CapsuleCollider = GetComponent<CapsuleCollider2D>();
+        rbPlayer = GetComponent<Rigidbody2D>();
+    }
+
+    protected Vector2 GetPlayerVelocity()
+    {
+        return rbPlayer.velocity;
     }
 
     public static bool CheckIfPlayerMoving()

@@ -29,7 +29,7 @@ namespace Player
             torch.SetActive(false);
             lantern.SetActive(false);
             lightItemAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
-            print("flagged");
+            
             if (isLanternPicked)
             {
                 torch.SetActive(true);

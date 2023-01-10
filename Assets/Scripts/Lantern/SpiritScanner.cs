@@ -13,11 +13,10 @@ namespace Lantern
         private float scannerRadius; // 6 unit seems suitable
 
         private void Start()
-        {
-            scannerRadius = GetComponent<CircleCollider2D>().radius - 14;
+        {   // when I drop scannerRadius to 6, it does not scan, it scans for greater values
+            scannerRadius = GetComponent<CircleCollider2D>().radius - 10; 
             
             spiritSprites = new SpriteRenderer[spiritController.spirits.Count];
-
             for (var i = 0; i < spiritController.spirits.Count; i++)
                 spiritSprites[i] = spiritController.spirits[i].GetComponent<SpriteRenderer>();
         }
@@ -45,7 +44,8 @@ namespace Lantern
                 var spiritLanternDistance = Vector3.Distance(transform.position, spirit.transform.position);
 
                 if (spiritLanternDistance <= scannerRadius)
-                    spiritSprites[i].enabled = true;
+                    {print("in");
+                    spiritSprites[i].enabled = true;}
                 
                 i++;
             }
