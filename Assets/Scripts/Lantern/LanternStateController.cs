@@ -16,15 +16,18 @@ namespace Lantern
         {
             if (playerAnimator.GetBool(PlayerMouseHandler.IsLanternUsed))
             {
-                LightIntensityController.LanternState = LanternFlickState.UsingLantern;
-                // PlayerHandController.playerCarryState = PlayerCarryState.UseLantern;
+                PlayerHandController.playerCarryState = PlayerCarryState.UseLantern;
+                lanternLight.pointLightOuterRadius = 12f;
+                if(Input.GetMouseButtonDown(0)) LightIntensityController.LanternState = LanternFlickState.Idle;
             }
+            else
+                lanternLight.pointLightOuterRadius = 5f;
+            
+            // lanternLight.pointLightOuterRadius = 
+            //     PlayerHandController.playerCarryState == PlayerCarryState.UseLantern ? 12f : 5f;
 
-            lanternLight.pointLightOuterRadius = 
-                LightIntensityController.LanternState == LanternFlickState.UsingLantern ? 12f : 5f;
-
-            if (Input.GetMouseButtonDown(0) && LightIntensityController.LanternState == LanternFlickState.UsingLantern)
-                LightIntensityController.LanternState = LanternFlickState.Idle;
+            // if (Input.GetMouseButtonDown(0) && PlayerHandController.playerCarryState == PlayerCarryState.UseLantern)
+            //     LightIntensityController.LanternState = LanternFlickState.Idle;
 
             if (!PlayerProperties.CheckIfPlayerMoving()) return; // check here !
             playerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);

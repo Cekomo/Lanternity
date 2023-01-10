@@ -9,7 +9,7 @@ namespace Lantern
         private void OnTriggerStay2D(Collider2D col)
         {
             if (col.gameObject.CompareTag("Spirit"))
-                LightIntensityController.LanternState = LanternFlickState.DetectingSpirit;
+                LightIntensityController.LanternState = LanternFlickState.DetectSpirit;
         }
         
         private void OnTriggerExit2D(Collider2D col)

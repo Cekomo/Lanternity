@@ -69,8 +69,8 @@ namespace Light
             lanternLight.intensity = LanternState switch
             {
                 LanternFlickState.Idle => Random.Range(LanternLightIntensity - 0.3f, LanternLightIntensity + 0.3f),
-                LanternFlickState.DetectingSpirit => Random.Range(LanternLightIntensity-0.8f, LanternLightIntensity+0.8f),
-                LanternFlickState.UsingLantern => Random.Range(1.75f - 0.3f, 1.75f + 0.3f),
+                LanternFlickState.DetectSpirit => Random.Range(LanternLightIntensity-0.8f, LanternLightIntensity+0.8f),
+                // LanternFlickState.UsingLantern => Random.Range(1.75f - 0.3f, 1.75f + 0.3f),
                 _ => lanternLight.intensity
             };
         }

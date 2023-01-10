@@ -50,6 +50,7 @@ namespace Player
                 case PlayerCarryState.UseLantern:
                     PlayerHandController.playerCarryState = movementVector2_X != 0
                         ? PlayerCarryState.CarryLantern : PlayerCarryState.UseLantern;
+                    rbPlayer.velocity = new Vector2(movementVector2_X * WALKING_SPEED, playerSpeed.y);    
                     break;
             }
             
