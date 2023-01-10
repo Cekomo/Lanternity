@@ -5,6 +5,7 @@ Try to escape from spirit vale by using soul lantern
 - If the lamb is in use, it's position changes instantly after jumping (minor-animation).
 - Create a new class that controls lantern actions wrt conditions
 - Spirit Scanner class does not work properly
+- When the code is adjusted during run, getter methods inside PlayerProperties script throw exception.
 
 # Parts to be refactored
 - Split playerMovement script 

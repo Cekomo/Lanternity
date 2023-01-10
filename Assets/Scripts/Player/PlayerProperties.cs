@@ -15,7 +15,7 @@ public class PlayerProperties : MonoBehaviour
         rbPlayer = GetComponent<Rigidbody2D>();
     }
 
-    protected Vector2 GetPlayerVelocity()
+    protected static Vector2 GetPlayerVelocity()
     {
         return rbPlayer.velocity;
     }

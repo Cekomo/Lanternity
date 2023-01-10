@@ -14,14 +14,18 @@ namespace Lantern
 
         private void Update()
         {
-            if (playerAnimator.GetBool(PlayerMouseHandler.IsLanternUsed))
+            if (PlayerHandController.playerCarryState == PlayerCarryState.UseLantern)
             {
-                PlayerHandController.playerCarryState = PlayerCarryState.UseLantern;
+                playerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, true);
+                
                 lanternLight.pointLightOuterRadius = 12f;
                 if(Input.GetMouseButtonDown(0)) LightIntensityController.LanternState = LanternFlickState.Idle;
             }
             else
+            {
+                playerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
                 lanternLight.pointLightOuterRadius = 5f;
+            }
             
             // lanternLight.pointLightOuterRadius = 
             //     PlayerHandController.playerCarryState == PlayerCarryState.UseLantern ? 12f : 5f;

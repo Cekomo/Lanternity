@@ -46,7 +46,6 @@ namespace Lantern
                 if (spiritLanternDistance <= scannerRadius)
                     {print("in");
                     spiritSprites[i].enabled = true;}
-                
                 i++;
             }
         }
