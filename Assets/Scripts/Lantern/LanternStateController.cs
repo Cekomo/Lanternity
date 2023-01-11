@@ -5,6 +5,9 @@ using UnityEngine;
 using Player;
 using Light;
 
+// NOTE: with refactoring flick pattern changes for UseLantern from passively 
+//..blinking to aggressively
+
 namespace Lantern 
 {
     public class LanternStateController : MonoBehaviour
@@ -17,6 +20,7 @@ namespace Lantern
 
         private void Update()
         {
+            // if a function needs to be added "+=/-=" keywords needs to be added
             switch (PlayerHandController.playerCarryState)
             {
                 case PlayerCarryState.UseLantern:
@@ -30,12 +34,9 @@ namespace Lantern
                     break;
             }
             
-            if (currentStateHandler != null)
-                currentStateHandler();
+            currentStateHandler?.Invoke(); // used handle nullReference exception
 
             if (!PlayerProperties.CheckIfPlayerMoving()) return; // check here !
-            playerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
-            LightIntensityController.LanternState = LanternFlickState.Idle;
             PlayerHandController.playerCarryState = PlayerCarryState.CarryLantern;
         }
 
