@@ -1,5 +1,6 @@
 namespace Player 
 {
+    // until finding meaningful implementation covering enums, it is disabled
     public enum PlayerMovementState
     {
         Idle,

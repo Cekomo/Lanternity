@@ -10,3 +10,5 @@ Try to escape from spirit vale by using soul lantern
 # Parts to be refactored
 - Split playerMovement script 
 - Split MovePlayerX() function
+- PlayerHand and PlayerMouse controllers can be merged
+- PlayerMovement enum class is disabled due to no related implementation

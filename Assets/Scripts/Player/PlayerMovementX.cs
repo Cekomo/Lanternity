@@ -35,18 +35,12 @@ namespace Player
             switch (PlayerHandController.playerCarryState)
             {
                 case PlayerCarryState.CarryTorch:
-                    playerMovementState = movementVector2_X == 1 
-                        ? PlayerMovementState.RunningRight : PlayerMovementState.RunningLeft;
                     rbPlayer.velocity = new Vector2(movementVector2_X * RUNNING_SPEED, GetPlayerVelocity().y);
                     break;
                 case PlayerCarryState.CarryLantern:
-                    playerMovementState = movementVector2_X == 1 
-                        ? PlayerMovementState.WalkingRight : PlayerMovementState.WalkingLeft;
                     rbPlayer.velocity = new Vector2(movementVector2_X * WALKING_SPEED, GetPlayerVelocity().y);
                     break;
                 case PlayerCarryState.UseLantern:
-                    PlayerHandController.playerCarryState = movementVector2_X != 0
-                        ? PlayerCarryState.CarryLantern : PlayerCarryState.UseLantern;
                     rbPlayer.velocity = new Vector2(movementVector2_X * WALKING_SPEED, GetPlayerVelocity().y);    
                     break;
             }
