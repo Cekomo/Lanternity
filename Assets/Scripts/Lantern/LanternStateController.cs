@@ -12,31 +12,44 @@ namespace Lantern
         [SerializeField] private Animator playerAnimator;
         [SerializeField] private Light2D lanternLight;
 
+        public delegate void LanternStateHandler();
+        private LanternStateHandler currentStateHandler;
+
         private void Update()
         {
-            if (PlayerHandController.playerCarryState == PlayerCarryState.UseLantern)
+            switch (PlayerHandController.playerCarryState)
             {
-                playerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, true);
-                
-                lanternLight.pointLightOuterRadius = 12f;
-                if(Input.GetMouseButtonDown(0)) LightIntensityController.LanternState = LanternFlickState.Idle;
-            }
-            else
-            {
-                playerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
-                lanternLight.pointLightOuterRadius = 5f;
+                case PlayerCarryState.UseLantern:
+                    currentStateHandler = UseLantern;
+                    break;
+                case PlayerCarryState.CarryLantern:
+                    currentStateHandler = CarryLantern;
+                    break;
+                default:
+                    currentStateHandler = null;
+                    break;
             }
             
-            // lanternLight.pointLightOuterRadius = 
-            //     PlayerHandController.playerCarryState == PlayerCarryState.UseLantern ? 12f : 5f;
-
-            // if (Input.GetMouseButtonDown(0) && PlayerHandController.playerCarryState == PlayerCarryState.UseLantern)
-            //     LightIntensityController.LanternState = LanternFlickState.Idle;
+            if (currentStateHandler != null)
+                currentStateHandler();
 
             if (!PlayerProperties.CheckIfPlayerMoving()) return; // check here !
             playerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
             LightIntensityController.LanternState = LanternFlickState.Idle;
             PlayerHandController.playerCarryState = PlayerCarryState.CarryLantern;
+        }
+
+        private void UseLantern()
+        {
+            playerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, true);
+            lanternLight.pointLightOuterRadius = 12f;
+            if(Input.GetMouseButtonDown(0)) LightIntensityController.LanternState = LanternFlickState.Idle;
+        }
+
+        private void CarryLantern()
+        {
+            playerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
+            lanternLight.pointLightOuterRadius = 5f;
         }
     }
 }

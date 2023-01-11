@@ -5,7 +5,6 @@ namespace Lantern
 {
     public class SpiritDetector : MonoBehaviour
     {
-
         private void OnTriggerStay2D(Collider2D col)
         {
             if (col.gameObject.CompareTag("Spirit"))

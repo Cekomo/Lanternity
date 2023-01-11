@@ -44,8 +44,8 @@ namespace Lantern
                 var spiritLanternDistance = Vector3.Distance(transform.position, spirit.transform.position);
 
                 if (spiritLanternDistance <= scannerRadius)
-                    {print("in");
-                    spiritSprites[i].enabled = true;}
+                    spiritSprites[i].enabled = true;
+                
                 i++;
             }
         }
