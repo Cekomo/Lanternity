@@ -15,7 +15,7 @@ namespace Lantern
         [SerializeField] private Animator playerAnimator;
         [SerializeField] private Light2D lanternLight;
 
-        public delegate void LanternStateHandler();
+        private delegate void LanternStateHandler();
         private LanternStateHandler currentStateHandler;
 
         private void Update()
@@ -50,7 +50,7 @@ namespace Lantern
         private void CarryLantern()
         {
             playerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
-            lanternLight.pointLightOuterRadius = 5f;
+            lanternLight.pointLightOuterRadius = 3f;
         }
     }
 }

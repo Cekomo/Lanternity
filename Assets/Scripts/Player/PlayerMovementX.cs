@@ -17,7 +17,7 @@ namespace Player
 
         private static PlayerMovementState playerMovementState;
         
-        void Update()
+        private void Update()
         {
             movementVector2_X = Input.GetAxisRaw("Horizontal");
             PlayerAnimator.SetFloat(SpeedX, Mathf.Abs(movementVector2_X));

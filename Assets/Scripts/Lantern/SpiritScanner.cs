@@ -14,7 +14,7 @@ namespace Lantern
 
         private void Start()
         {   // when I drop scannerRadius to 6, it does not scan, it scans for greater values
-            scannerRadius = GetComponent<CircleCollider2D>().radius - 10; 
+            scannerRadius = GetComponent<CircleCollider2D>().radius - 11; 
             
             spiritSprites = new SpriteRenderer[spiritController.spirits.Count];
             for (var i = 0; i < spiritController.spirits.Count; i++)

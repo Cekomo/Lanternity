@@ -286,6 +286,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 80455042}
     m_Modifications:
+    - target: {fileID: 5856557695332725013, guid: b866a411758f9b24198e1722c66ea563, type: 3}
+      propertyPath: m_Intensity
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856557695332725013, guid: b866a411758f9b24198e1722c66ea563, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5856557695332725225, guid: b866a411758f9b24198e1722c66ea563, type: 3}
       propertyPath: m_Name
       value: Spirit (1)
@@ -686,6 +694,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 80455042}
     m_Modifications:
+    - target: {fileID: 5856557695332725013, guid: b866a411758f9b24198e1722c66ea563, type: 3}
+      propertyPath: m_Intensity
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856557695332725013, guid: b866a411758f9b24198e1722c66ea563, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5856557695332725225, guid: b866a411758f9b24198e1722c66ea563, type: 3}
       propertyPath: m_Name
       value: Spirit (4)
@@ -4715,6 +4731,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 80455042}
     m_Modifications:
+    - target: {fileID: 5856557695332725013, guid: b866a411758f9b24198e1722c66ea563, type: 3}
+      propertyPath: m_Intensity
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856557695332725013, guid: b866a411758f9b24198e1722c66ea563, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5856557695332725225, guid: b866a411758f9b24198e1722c66ea563, type: 3}
       propertyPath: m_Name
       value: Spirit (5)
@@ -4794,6 +4818,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 80455042}
     m_Modifications:
+    - target: {fileID: 5856557695332725013, guid: b866a411758f9b24198e1722c66ea563, type: 3}
+      propertyPath: m_Intensity
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856557695332725013, guid: b866a411758f9b24198e1722c66ea563, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5856557695332725225, guid: b866a411758f9b24198e1722c66ea563, type: 3}
       propertyPath: m_Name
       value: Spirit (3)
@@ -4873,6 +4905,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 80455042}
     m_Modifications:
+    - target: {fileID: 5856557695332725013, guid: b866a411758f9b24198e1722c66ea563, type: 3}
+      propertyPath: m_Intensity
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856557695332725013, guid: b866a411758f9b24198e1722c66ea563, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5856557695332725225, guid: b866a411758f9b24198e1722c66ea563, type: 3}
       propertyPath: m_Name
       value: Spirit (2)
@@ -5081,7 +5121,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 294e3773d371bfc0000000003b817d4e717db98669eb3758
+  m_ApplyToSortingLayers: 294e3773d371bfc0000000003b817d4e717db98669eb37584133f746
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -5129,7 +5169,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightOuterRadius: 3
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -5149,6 +5189,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5856557695332725013, guid: b866a411758f9b24198e1722c66ea563, type: 3}
       propertyPath: m_Intensity
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856557695332725013, guid: b866a411758f9b24198e1722c66ea563, type: 3}
+      propertyPath: m_PointLightOuterRadius
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5856557695332725225, guid: b866a411758f9b24198e1722c66ea563, type: 3}
