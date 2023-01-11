@@ -52,7 +52,7 @@ namespace Light
             }
         }
 
-        private IEnumerator FlickLanternLightCoroutine() // it is better to express flick states with enum
+        private IEnumerator FlickLanternLightCoroutine() 
         {
             while (true)
             {
@@ -70,7 +70,6 @@ namespace Light
             {
                 LanternFlickState.Idle => Random.Range(LanternLightIntensity - 0.3f, LanternLightIntensity + 0.3f),
                 LanternFlickState.DetectSpirit => Random.Range(LanternLightIntensity-0.8f, LanternLightIntensity+0.8f),
-                // LanternFlickState.UsingLantern => Random.Range(1.75f - 0.3f, 1.75f + 0.3f),
                 _ => lanternLight.intensity
             };
         }

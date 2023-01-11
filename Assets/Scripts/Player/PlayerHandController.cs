@@ -21,29 +21,21 @@ namespace Player
             if (!Input.GetKeyDown(KeyCode.Q) || !PickableLanternController.IsLanternPicked()
                 || PlayerProperties.CheckIfPlayerMoving()) return;
 
+            lightItemAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
             SwitchBetweenLights();
         }
 
         private void SwitchBetweenLights()
         {
-            torch.SetActive(false);
-            lantern.SetActive(false);
-            lightItemAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
+            isLanternPicked = !isLanternPicked;
             
-            if (isLanternPicked)
-            {
-                torch.SetActive(true);
-                lightItemAnimator.SetBool(IsLanternPicked, false);
-                playerCarryState = PlayerCarryState.CarryTorch; 
-                isLanternPicked = false;
-            }
-            else
-            {
-                lantern.SetActive(true);
-                lightItemAnimator.SetBool(IsLanternPicked, true);
-                playerCarryState = PlayerCarryState.CarryLantern;
-                isLanternPicked = true;
-            }
+            torch.SetActive(!isLanternPicked);
+            lantern.SetActive(isLanternPicked);
+            
+            playerCarryState = isLanternPicked ? 
+                PlayerCarryState.CarryLantern : PlayerCarryState.CarryTorch;
+
+            lightItemAnimator.SetBool(IsLanternPicked, isLanternPicked);
         }
     }
 }
