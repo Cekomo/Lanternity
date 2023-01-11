@@ -17,7 +17,6 @@ namespace Player
 
         private void Update()
         {
-            //HERE!-----------------------
             if (!Input.GetKeyDown(KeyCode.Q) || !PickableLanternController.IsLanternPicked()
                 || PlayerProperties.CheckIfPlayerMoving()) return;
 

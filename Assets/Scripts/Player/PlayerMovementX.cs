@@ -32,16 +32,17 @@ namespace Player
         {
             // left right directions will be adjusted after direction-sensitive
             //..animations are added
+            
             switch (PlayerHandController.playerCarryState)
             {
                 case PlayerCarryState.CarryTorch:
                     rbPlayer.velocity = new Vector2(movementVector2_X * RUNNING_SPEED, GetPlayerVelocity().y);
                     break;
-                case PlayerCarryState.CarryLantern:
+                case PlayerCarryState.CarryLantern or PlayerCarryState.UseLantern: // temporary place for UseLantern
                     rbPlayer.velocity = new Vector2(movementVector2_X * WALKING_SPEED, GetPlayerVelocity().y);
                     break;
-                case PlayerCarryState.UseLantern:
-                    rbPlayer.velocity = new Vector2(movementVector2_X * WALKING_SPEED, GetPlayerVelocity().y);    
+                default:
+                    Debug.Log("Unwanted occurence!");    
                     break;
             }
             
