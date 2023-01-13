@@ -7,7 +7,7 @@ namespace Player
         [SerializeField] private Animator playerAnimator;
 
         public static readonly int IsLanternUsed = Animator.StringToHash("isLanternUsed");
-        private bool isLanternUsed;
+        private static bool isLanternUsed;
 
         private void Update()
         {
@@ -26,8 +26,11 @@ namespace Player
 
             if (Input.GetMouseButtonDown(1) && !isLanternUsed)
                 PlayerHandController.playerCarryState = PlayerCarryState.ActivateLanternBeam;
-            // else if (Input.GetMouseButtonDown(1) && !isLanternUsed)
-            //     PlayerHandController.playerCarryState = PlayerCarryState.CarryLantern;
+        }
+
+        public static void ResetLanternUsageIfNotPicked(bool isLanternPicked)
+        {
+            if (!isLanternPicked) isLanternUsed = false;
         }
     }
 

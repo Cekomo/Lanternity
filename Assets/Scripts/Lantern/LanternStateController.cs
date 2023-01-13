@@ -21,16 +21,17 @@ namespace Lantern
 
         private void Update()
         {
+            // print(PlayerHandController.playerCarryState);
             // if a function needs to be added "+=/-=" keywords needs to be added
             switch (PlayerHandController.playerCarryState)
             {
                 case PlayerCarryState.LiftLantern:
-                    currentStateHandler = UseLantern;
                     currentStateHandler += () => SetLanternBeamIntensity(0);
+                    currentStateHandler += UseLantern;
                     break;
                 case PlayerCarryState.CarryLantern:
-                    currentStateHandler = CarryLantern;
                     currentStateHandler += () => SetLanternBeamIntensity(0);
+                    currentStateHandler += CarryLantern;
                     break;
                 case PlayerCarryState.ActivateLanternBeam:
                     currentStateHandler += () => SetLanternBeamIntensity(1.0f);
@@ -61,6 +62,7 @@ namespace Lantern
 
         private void SetLanternBeamIntensity(float beamIntensity)
         {
+            spotLight.pointLightOuterRadius = beamIntensity;
             beamLight.intensity = beamIntensity;
         }
     }

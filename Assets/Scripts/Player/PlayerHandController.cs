@@ -20,6 +20,7 @@ namespace Player
             if (!Input.GetKeyDown(KeyCode.Q) || !PickableLanternController.IsLanternPicked()
                 || PlayerProperties.CheckIfPlayerMoving()) return;
 
+            PlayerMouseHandler.ResetLanternUsageIfNotPicked(isLanternPicked);
             lightItemAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
             SwitchBetweenLights();
         }
