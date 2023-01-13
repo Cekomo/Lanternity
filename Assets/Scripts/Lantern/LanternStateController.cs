@@ -13,7 +13,8 @@ namespace Lantern
     public class LanternStateController : MonoBehaviour
     {
         [SerializeField] private Animator playerAnimator;
-        [SerializeField] private Light2D lanternLight;
+        [SerializeField] private Light2D spotLight;
+        [SerializeField] private Light2D beamLight;
 
         private delegate void LanternStateHandler();
         private LanternStateHandler currentStateHandler;
@@ -23,11 +24,16 @@ namespace Lantern
             // if a function needs to be added "+=/-=" keywords needs to be added
             switch (PlayerHandController.playerCarryState)
             {
-                case PlayerCarryState.UseLantern:
+                case PlayerCarryState.LiftLantern:
                     currentStateHandler = UseLantern;
+                    currentStateHandler += () => SetLanternBeamIntensity(0);
                     break;
                 case PlayerCarryState.CarryLantern:
                     currentStateHandler = CarryLantern;
+                    currentStateHandler += () => SetLanternBeamIntensity(0);
+                    break;
+                case PlayerCarryState.ActivateLanternBeam:
+                    currentStateHandler += () => SetLanternBeamIntensity(1.0f);
                     break;
                 default:
                     currentStateHandler = null;
@@ -43,14 +49,19 @@ namespace Lantern
         private void UseLantern()
         {
             playerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, true);
-            lanternLight.pointLightOuterRadius = 12f;
+            spotLight.pointLightOuterRadius = 12f;
             if(Input.GetMouseButtonDown(0)) LightIntensityController.LanternState = LanternFlickState.Idle;
         }
 
         private void CarryLantern()
         {
             playerAnimator.SetBool(PlayerMouseHandler.IsLanternUsed, false);
-            lanternLight.pointLightOuterRadius = 3f;
+            spotLight.pointLightOuterRadius = 3f;
+        }
+
+        private void SetLanternBeamIntensity(float beamIntensity)
+        {
+            beamLight.intensity = beamIntensity;
         }
     }
 }

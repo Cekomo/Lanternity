@@ -4,6 +4,8 @@ namespace Player
     {
         CarryTorch,
         CarryLantern,
-        UseLantern  
+        LiftLantern,  
+        
+        ActivateLanternBeam
     }
 }

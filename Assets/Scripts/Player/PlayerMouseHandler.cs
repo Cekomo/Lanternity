@@ -11,7 +11,8 @@ namespace Player
 
         private void Update()
         {
-            if (!Input.GetMouseButtonDown(0) || PlayerProperties.CheckIfPlayerMoving() 
+            if ((!Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1)) 
+                || PlayerProperties.CheckIfPlayerMoving()
                 || !playerAnimator.GetBool(PlayerHandController.IsLanternPicked)) return;
             
             SwitchLanternUsageWhenPressed();
@@ -21,7 +22,12 @@ namespace Player
         {            
             isLanternUsed = !isLanternUsed;
             PlayerHandController.playerCarryState = 
-                isLanternUsed ? PlayerCarryState.UseLantern : PlayerCarryState.CarryLantern;            
+                isLanternUsed ? PlayerCarryState.LiftLantern : PlayerCarryState.CarryLantern;
+
+            if (Input.GetMouseButtonDown(1) && !isLanternUsed)
+                PlayerHandController.playerCarryState = PlayerCarryState.ActivateLanternBeam;
+            // else if (Input.GetMouseButtonDown(1) && !isLanternUsed)
+            //     PlayerHandController.playerCarryState = PlayerCarryState.CarryLantern;
         }
     }
 
