@@ -1,29 +1,36 @@
+using Player;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 namespace Lantern
 {
     public class LanternBeamController : MonoBehaviour
     {
+        private Camera mainCamera;
+        
+        private void Start()
+        {
+            mainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>(); // = Camera.main equivalent
+        }
+        
         private void Update()
+        {
+            if (!Input.GetMouseButton(1) || 
+                PlayerHandController.playerCarryState != 
+                PlayerCarryState.ActivateLanternBeam) return;
+
+            PointMouseWithBeam();
+        }
+
+        private void PointMouseWithBeam()
         {
             var mousePosition = Input.mousePosition;
             // Convert the mouse position from screen space to world space
-            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            mousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
             var direction = mousePosition - transform.position;
             var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             // Update the Z-rotation of the light sprite to match the angle
-            transform.rotation = Quaternion.Euler(0, 0, angle);
+            if (angle is > -30f and < 30f)
+                transform.rotation = Quaternion.Euler(0, 0, angle);
         }
-        
-        // public void FaceTowardsMousePointer()
-        // {
-        //     mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //
-        //     var lightTransform = transform;
-        //     playerMousePosDifference =
-        //         new Vector2(mousePos.x - lightTransform.position.x, mousePos.y - lightTransform.position.y);
-        //     lightTransform.up = playerMousePosDifference;
-        // }
     }
 }
