@@ -53,7 +53,7 @@ namespace Player
         private void FaceTowards()
         {
             if ((int)previousMoveX == (int)movementVector2_X) return;
-            DeterminePlayerFacing();
+            DeterminePlayerDirection();
             
             if (movementVector2_X != 0)
                 transform.localScale = new Vector3(2.15f * movementVector2_X, 2.15f, 1);
@@ -61,7 +61,7 @@ namespace Player
             previousMoveX = movementVector2_X;
         }
 
-        public static float DeterminePlayerFacing()
+        public static float DeterminePlayerDirection()
         {
             if (movementVector2_X != 0) playerFacing = movementVector2_X;
             return playerFacing;
