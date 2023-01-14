@@ -14,6 +14,7 @@ namespace Player
         // private Vector2 playerSpeed;
         private static float movementVector2_X;
         private float previousMoveX;
+        private static float playerFacing;
 
         private static PlayerMovementState playerMovementState;
         
@@ -42,7 +43,7 @@ namespace Player
                     rbPlayer.velocity = new Vector2(movementVector2_X * WALKING_SPEED, GetPlayerVelocity().y);
                     break;
                 default:
-                    Debug.Log("Unwanted occurence!");    
+                    print("Unwanted occurence!");    
                     break;
             }
             
@@ -52,11 +53,18 @@ namespace Player
         private void FaceTowards()
         {
             if ((int)previousMoveX == (int)movementVector2_X) return;
-
+            DeterminePlayerFacing();
+            
             if (movementVector2_X != 0)
                 transform.localScale = new Vector3(2.15f * movementVector2_X, 2.15f, 1);
 
             previousMoveX = movementVector2_X;
+        }
+
+        public static float DeterminePlayerFacing()
+        {
+            if (movementVector2_X != 0) playerFacing = movementVector2_X;
+            return playerFacing;
         }
     }
 }

@@ -6,6 +6,7 @@ namespace Lantern
     public class LanternBeamController : MonoBehaviour
     {
         private Camera mainCamera;
+        private const float ANGLE_THRESHOLD = 30;
         
         private void Start()
         {
@@ -14,10 +15,9 @@ namespace Lantern
         
         private void Update()
         {
-            if (!Input.GetMouseButton(1) || 
-                PlayerHandController.playerCarryState != 
+            if (!Input.GetMouseButton(1) || PlayerHandController.playerCarryState != 
                 PlayerCarryState.ActivateLanternBeam) return;
-
+            print(PlayerMovementX.DeterminePlayerFacing());
             PointMouseWithBeam();
         }
 
@@ -29,8 +29,8 @@ namespace Lantern
             var direction = mousePosition - transform.position;
             var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             // Update the Z-rotation of the light sprite to match the angle
-            if (angle is > -30f and < 30f)
-                transform.rotation = Quaternion.Euler(0, 0, angle);
+            if (angle is > -ANGLE_THRESHOLD and < ANGLE_THRESHOLD)
+                transform.rotation = Quaternion.Euler(0, 0, angle * PlayerMovementX.DeterminePlayerFacing());
         }
     }
 }

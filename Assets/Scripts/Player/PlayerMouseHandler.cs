@@ -30,7 +30,8 @@ namespace Player
 
         public static void ResetLanternUsageIfNotPicked(bool isLanternPicked)
         {
-            if (!isLanternPicked) isLanternUsed = false;
+            if (!isLanternPicked || PlayerProperties.CheckIfPlayerMoving()) isLanternUsed = false;
+            // if (PlayerProperties.CheckIfPlayerMoving()) isLanternUsed = false;
         }
     }
 

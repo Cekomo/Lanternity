@@ -8,8 +8,8 @@ Try to escape from spirit vale by using soul lantern
 - When the code is adjusted during run, getter methods inside PlayerProperties script throw exception.
 
 # Parts to be refactored
-- Split playerMovement script 
-- Split MovePlayerX() function
 - PlayerHand and PlayerMouse controllers can be merged
 - PlayerMovement enum class is disabled due to no related implementation
 - Lantern use does not get triggered after letting up moving instantly (x-axis)
+- CONSIDER IMPLEMENTING NEW INPUT SYSTEM
+- Convert all input functions inside a singleton class and use that class wherever neccessary
