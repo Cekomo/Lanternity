@@ -11,21 +11,23 @@ namespace Player
 
         private void Update()
         {
+            print(isLanternUsed);   
             if ((!Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1)) 
                 || PlayerProperties.CheckIfPlayerMoving()
                 || !playerAnimator.GetBool(PlayerHandController.IsLanternPicked)) return;
-            
+
             SwitchLanternUsageWhenPressed();
         }
 
-        private void SwitchLanternUsageWhenPressed()
+        private void SwitchLanternUsageWhenPressed() // refactor this function
         {            
-            isLanternUsed = !isLanternUsed;
+            if (!Input.GetMouseButtonDown(1)) isLanternUsed = !isLanternUsed;
             PlayerHandController.playerCarryState = 
                 isLanternUsed ? PlayerCarryState.LiftLantern : PlayerCarryState.CarryLantern;
-
-            if (Input.GetMouseButtonDown(1) && !isLanternUsed)
-                PlayerHandController.playerCarryState = PlayerCarryState.ActivateLanternBeam;
+           
+            if (!Input.GetMouseButton(1) || !isLanternUsed ||
+                 PlayerHandController.playerCarryState != PlayerCarryState.LiftLantern) return;
+            PlayerHandController.playerCarryState = PlayerCarryState.ActivateLanternBeam;
         }
 
         public static void ResetLanternUsageIfNotPicked(bool isLanternPicked)

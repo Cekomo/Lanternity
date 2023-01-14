@@ -15,6 +15,7 @@ namespace Lantern
         
         private void Update()
         {
+            
             if (!Input.GetMouseButton(1) || PlayerHandController.playerCarryState != 
                 PlayerCarryState.ActivateLanternBeam) return;
 
