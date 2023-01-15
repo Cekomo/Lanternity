@@ -38,16 +38,18 @@ namespace Player
             {
                 case PlayerCarryState.CarryTorch:
                     rbPlayer.velocity = new Vector2(movementVector2_X * RUNNING_SPEED, GetPlayerVelocity().y);
+                    FaceTowards();
                     break;
                 case PlayerCarryState.CarryLantern or PlayerCarryState.LiftLantern: // temporary place for UseLantern
                     rbPlayer.velocity = new Vector2(movementVector2_X * WALKING_SPEED, GetPlayerVelocity().y);
+                    FaceTowards();
+                    break;
+                case PlayerCarryState.ActivateLanternBeam:
                     break;
                 default:
                     print("Unwanted occurence!");    
                     break;
             }
-            
-            FaceTowards();
         }
 
         private void FaceTowards()
