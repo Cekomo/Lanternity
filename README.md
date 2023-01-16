@@ -13,3 +13,5 @@ Try to escape from spirit vale by using soul lantern
 - Lantern use does not get triggered after letting up moving instantly (x-axis)
 - CONSIDER IMPLEMENTING NEW INPUT SYSTEM
 - Convert all input functions inside a singleton class and use that class wherever neccessary
+- LanternBeam state now affects some part of the code like disabling movement. You may want to gather the
+states that blocks those actions later instead of declaring that state inside conditional statements.

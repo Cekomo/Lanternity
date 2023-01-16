@@ -33,7 +33,7 @@ namespace Player
         {
             // left right directions will be adjusted after direction-sensitive
             //..animations are added
-            
+            print(playerFacing);
             switch (PlayerHandController.playerCarryState)
             {
                 case PlayerCarryState.CarryTorch:
@@ -65,7 +65,8 @@ namespace Player
 
         public static float DeterminePlayerDirection()
         {
-            if (movementVector2_X != 0) playerFacing = movementVector2_X;
+            if (movementVector2_X != 0 && PlayerHandController.playerCarryState != PlayerCarryState.ActivateLanternBeam) 
+                playerFacing = movementVector2_X;
             return playerFacing;
         }
     }
