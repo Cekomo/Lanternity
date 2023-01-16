@@ -35,7 +35,8 @@ namespace Player
 
             // move the rigidBody2D instead of moving the transform to prevent camera shaking 
             //..during wall contact
-            if (!(movementVector2_Y > 0.1f) || !CheckIfGrounded()) return;
+            if (!(movementVector2_Y > 0.1f) || !CheckIfGrounded() 
+                || PlayerHandController.playerCarryState == PlayerCarryState.ActivateLanternBeam) return;
             rbPlayer.velocity = new Vector2(GetPlayerVelocity().x, JUMPING_SPEED);
             PlayerAnimator.SetTrigger(TakeOff);
         }
