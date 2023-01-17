@@ -33,7 +33,7 @@ namespace Player
         {
             // left right directions will be adjusted after direction-sensitive
             //..animations are added
-            print(playerFacing);
+      
             switch (PlayerHandController.playerCarryState)
             {
                 case PlayerCarryState.CarryTorch:

@@ -1005,6 +1005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spiritController: {fileID: 1966752354}
+  spiritSprites: []
 --- !u!50 &420236050
 Rigidbody2D:
   serializedVersion: 4
@@ -5280,6 +5281,7 @@ GameObject:
   - component: {fileID: 1392477007}
   - component: {fileID: 1392477008}
   - component: {fileID: 1392477009}
+  - component: {fileID: 1392477010}
   m_Layer: 0
   m_Name: BeamLight
   m_TagString: Untagged
@@ -5319,7 +5321,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 294e3773d371bfc0000000003b817d4e717db9864133f74669eb3758
@@ -5492,6 +5494,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122cd93315bbc694482b2ce1af7da8e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!68 &1392477010
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392477006}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 9.924215, y: -0.35786268}
+  - {x: 9.860677, y: -0.3894664}
+  - {x: 9.841529, y: -0.59430355}
+  - {x: 9.773763, y: -0.6394954}
+  - {x: 9.767201, y: -0.84612155}
+  - {x: 9.520078, y: -1.1536463}
+  - {x: 8.438919, y: -1.1759733}
+  - {x: 8.432541, y: -1.0888644}
+  - {x: 7.5730557, y: -1.012833}
+  - {x: 0.10986371, y: -0.41488436}
+  - {x: 0.12354194, y: 0.4956162}
+  - {x: 9.529956, y: 1.1940745}
+  - {x: 9.784591, y: 0.8191303}
+  - {x: 9.777891, y: 0.64435285}
+  - {x: 9.846636, y: 0.6087347}
+  - {x: 9.877561, y: 0.3882363}
+  - {x: 9.921505, y: 0.39429292}
+  - {x: 9.92567, y: -0.38854384}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1557187748
 GameObject:
   m_ObjectHideFlags: 0

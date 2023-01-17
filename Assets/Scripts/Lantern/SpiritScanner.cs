@@ -7,7 +7,7 @@ namespace Lantern
     {
         public SpiritController spiritController;
 
-        private SpriteRenderer[] spiritSprites;
+        [SerializeField] public SpriteRenderer[] spiritSprites;
 
         private float scanCooldown;
         private float scannerRadius; // 6 unit seems suitable
@@ -38,13 +38,18 @@ namespace Lantern
             
             scanCooldown = 2f;
 
+            FindAndChangeSpiritVisibility(true);
+        }
+
+        public void FindAndChangeSpiritVisibility(bool isEnabled)
+        {
             var i = 0;
             foreach (var spirit in spiritController.spirits)
             {
                 var spiritLanternDistance = Vector3.Distance(transform.position, spirit.transform.position);
 
                 if (spiritLanternDistance <= scannerRadius)
-                    spiritSprites[i].enabled = true;
+                    spiritSprites[i].enabled = isEnabled;
                 
                 i++;
             }

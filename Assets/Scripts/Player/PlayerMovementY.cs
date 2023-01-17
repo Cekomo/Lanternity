@@ -1,6 +1,7 @@
 using UnityEngine;
 using Light;
 using Lantern;
+using UnityEditor.PackageManager;
 
 namespace Player
 {
@@ -59,7 +60,7 @@ namespace Player
         private void SetParametersToAnimateJump()
         {
             PlayerAnimator.SetBool(IsJumping, !CheckIfGrounded());
-            PlayerAnimator.SetBool(IsGrounded, CheckIfGrounded());
+            /*if (!CheckIfGrounded())*/ PlayerAnimator.SetBool(IsGrounded, CheckIfGrounded());
             PlayerAnimator.SetFloat(SpeedY, GetPlayerVelocity().y);
         }
 
@@ -68,6 +69,8 @@ namespace Player
             var bCBounds = CapsuleCollider.bounds;
             var raycastHit2D = Physics2D.BoxCast(bCBounds.center, bCBounds.size,
                 0f, Vector2.down, 0.1f, PlatformsLayerMask);
+            // var heightDifference = transform.position.y - raycastHit2D.point.y;
+            // if (heightDifference < 1f) PlayerAnimator.SetBool(IsGrounded, true);
             return !ReferenceEquals(raycastHit2D.collider, null); // changed from raycastHit2D.collider != null;
         }
     }
