@@ -4,8 +4,8 @@ Try to escape from spirit vale by using soul lantern
 # Bugs to be fixed
 - If the lamb is in use, it's position changes instantly after jumping (minor-animation).
 - Create a new class that controls lantern actions wrt conditions
-- Spirit Scanner class does not work properly
-- When the code is adjusted during run, getter methods inside PlayerProperties script throw exception.
+- When the code is adjusted during run, getter methods inside PlayerProperties script throw exception
+- There can be problem on capture spirits with beam, latern captures other spirit too when one of it is catched.
 
 # Parts to be refactored
 - PlayerHand and PlayerMouse controllers can be merged

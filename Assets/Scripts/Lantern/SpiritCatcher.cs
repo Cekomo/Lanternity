@@ -8,19 +8,16 @@ namespace Lantern
     {
         public SpiritScanner spiritScanner;
 
-        private void OnTriggerEnter2D(Collider2D col)
+        private void OnTriggerStay2D(Collider2D col)
         {
-            if (!col.gameObject.CompareTag("Spirit")) return;
+            if (!col.gameObject.CompareTag("Spirit") || 
+                PlayerHandController.playerCarryState != PlayerCarryState.ActivateLanternBeam) return;
             
-            foreach (var spiritSprite in spiritScanner.spiritSprites)
-            {
-                if (spiritSprite.enabled && PlayerHandController.playerCarryState == PlayerCarryState.ActivateLanternBeam)
-                {
-                    spiritSprite.enabled = false;
-                    // LightIntensityController.LanternState = LanternFlickState.CatchSpirit;
-                }
-            }
-            
+            var spriteRenderer = col.gameObject.GetComponent<SpriteRenderer>();
+            if (spriteRenderer.enabled)
+                col.gameObject.SetActive(false);
+            // not finished...
+            // LightIntensityController.LanternState = LanternFlickState.CatchSpirit;
         }
     }
 }
