@@ -38,18 +38,15 @@ namespace Lantern
             
             scanCooldown = 2f;
 
-            FindAndChangeSpiritVisibility(true);
-        }
-
-        public void FindAndChangeSpiritVisibility(bool isEnabled)
-        {
             var i = 0;
             foreach (var spirit in spiritController.spirits)
             {
                 var spiritLanternDistance = Vector3.Distance(transform.position, spirit.transform.position);
 
                 if (spiritLanternDistance <= scannerRadius)
-                    spiritSprites[i].enabled = isEnabled;
+                {
+                    spiritSprites[i].enabled = true;
+                }
                 
                 i++;
             }
