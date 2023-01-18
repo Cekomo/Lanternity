@@ -7,14 +7,18 @@ namespace Lantern
     {
         private void OnTriggerStay2D(Collider2D col)
         {
-            if (col.gameObject.CompareTag("Spirit"))
-                LightIntensityController.LanternState = LanternFlickState.DetectSpirit;
+            if (!col.gameObject.CompareTag("Spirit") || 
+                LightIntensityController.LanternState == LanternFlickState.CatchSpirit) return;
+            
+            LightIntensityController.LanternState = LanternFlickState.DetectSpirit;
         }
         
         private void OnTriggerExit2D(Collider2D col)
         {
-            if (col.gameObject.CompareTag("Spirit"))
-                LightIntensityController.LanternState = LanternFlickState.Idle;
+            if (col.gameObject.CompareTag("Spirit") || 
+                LightIntensityController.LanternState == LanternFlickState.CatchSpirit) return;
+            
+            LightIntensityController.LanternState = LanternFlickState.Idle;
         }
     }
 }
