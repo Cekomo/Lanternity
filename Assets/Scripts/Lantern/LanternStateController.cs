@@ -72,18 +72,17 @@ namespace Lantern
             if (LightIntensityController.LanternState != LanternFlickState.CatchSpirit) return;
             StartCoroutine(IncreaseLightBeamBrightness());
         }
-        
+
         private IEnumerator IncreaseLightBeamBrightness()
         {
             yield return new WaitForSeconds(0.1f);
             beamLight.intensity = 10f;
             isStateChangeAvailable = false;
             yield return new WaitForSeconds(1f);
-            
+
             LightIntensityController.LanternState = LanternFlickState.Idle;
             isStateChangeAvailable = true;
             beamLight.intensity = 1f;
-           
         }
     }
 }
