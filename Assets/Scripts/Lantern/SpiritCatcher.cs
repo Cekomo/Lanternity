@@ -17,7 +17,7 @@ namespace Lantern
             if (spriteRenderer.enabled)
                 col.gameObject.SetActive(false);
             // not finished...
-            // LightIntensityController.LanternState = LanternFlickState.CatchSpirit;
+            LightIntensityController.LanternState = LanternFlickState.CatchSpirit;
         }
     }
 }

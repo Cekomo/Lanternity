@@ -19,8 +19,12 @@ namespace Lantern
         private delegate void LanternStateHandler();
         private LanternStateHandler currentStateHandler;
 
+        private bool isStateChangeAvailable = true;
+        
         private void Update()
         {
+            // if (!isStateChangeAvailable) return;
+            
             // print(PlayerHandController.playerCarryState);
             // if a function needs to be added "+=/-=" keywords needs to be added
             switch (PlayerHandController.playerCarryState)
@@ -64,6 +68,20 @@ namespace Lantern
         {
             spotLight.pointLightOuterRadius = beamIntensity;
             beamLight.intensity = beamIntensity;
+
+            // if (LightIntensityController.LanternState != LanternFlickState.CatchSpirit) return;
+            // StartCoroutine(IncreaseLightBeamBrightness());
         }
+
+        // private IEnumerator IncreaseLightBeamBrightness()
+        // {
+        //     beamLight.intensity = 5f;
+        //     isStateChangeAvailable = false;
+        //     yield return new WaitForSeconds(2f);
+        //     
+        //     LightIntensityController.LanternState = LanternFlickState.Idle; // ? 
+        //     isStateChangeAvailable = true;
+        //     beamLight.intensity = 1f;
+        // }
     }
 }
