@@ -75,11 +75,12 @@ namespace Lantern
         
         private IEnumerator IncreaseLightBeamBrightness()
         {
-            beamLight.intensity = 4f;
+            yield return new WaitForSeconds(0.1f);
+            beamLight.intensity = 10f;
             isStateChangeAvailable = false;
             yield return new WaitForSeconds(1f);
             
-            LightIntensityController.LanternState = LanternFlickState.Idle; // ? 
+            LightIntensityController.LanternState = LanternFlickState.Idle;
             isStateChangeAvailable = true;
             beamLight.intensity = 1f;
            
