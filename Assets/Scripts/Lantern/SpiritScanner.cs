@@ -1,3 +1,4 @@
+using Player;
 using Spirit;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace Lantern
     public class SpiritScanner : MonoBehaviour
     {
         public SpiritController spiritController;
+        public Animator lanternAnimator; 
 
         [SerializeField] public SpriteRenderer[] spiritSprites;
 
@@ -34,8 +36,10 @@ namespace Lantern
         
         private void ScanSpirit()
         {
-            if (!Input.GetKey(KeyCode.Z)) return;
+            if (!Input.GetKey(KeyCode.Z) || 
+                PlayerHandController.playerCarryState == PlayerCarryState.ActivateLanternBeam) return;
             
+            lanternAnimator.SetTrigger("triggerScanning");
             scanCooldown = 2f;
 
             var i = 0;

@@ -60,3 +60,6 @@ TagManager:
   - name: Player
     uniqueID: 1480059753
     locked: 0
+  - name: ScanLight
+    uniqueID: 609735447
+    locked: 0
